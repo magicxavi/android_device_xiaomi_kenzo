@@ -365,6 +365,10 @@ PRODUCT_PACKAGES += \
      QPerformance \
      UxPerformance
 
+# QMI
+PRODUCT_PACKAGES += \
+    libjson
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
