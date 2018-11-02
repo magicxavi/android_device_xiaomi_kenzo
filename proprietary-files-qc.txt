@@ -306,9 +306,6 @@ vendor/lib64/hw/vulkan.msm8952.so|68d1968e57e98bf77ef2a5030d7880757514d358
 etc/firmware/a530_pfp.fw
 etc/firmware/a530_pm4.fw
 
-# IPA
-vendor/bin/ipacm-diag
-
 # Keystore
 vendor/lib64/hw/keystore.msm8952.so
 
