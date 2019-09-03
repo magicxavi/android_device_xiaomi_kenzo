@@ -44,6 +44,7 @@ ro.btconfig.vendor=qcom
 ro.btconfig.chip=WCN3680
 ro.qualcomm.bt.hci_transport=smd
 persist.bt.enableAptXHD=true
+persist.bluetooth.bluetooth_audio_hal.disabled=true
 
 # Boot
 sys.vendor.shutdown.waittime=500
