@@ -215,6 +215,7 @@ TARGET_USES_INTERACTION_BOOST := true
 #TARGET_USES_NON_LEGACY_POWERHAL := true
 
 # Properties
+TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Qualcomm
