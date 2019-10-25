@@ -43,6 +43,7 @@ ro.btconfig.dev=/dev/smd3
 ro.btconfig.vendor=qcom
 ro.btconfig.chip=WCN3680
 ro.qualcomm.bt.hci_transport=smd
+persist.bluetooth.bluetooth_audio_hal.disabled=true
 persist.bt.enableAptXHD=true
 persist.bluetooth.bluetooth_audio_hal.disabled=true
 
