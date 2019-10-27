@@ -240,7 +240,8 @@ PRODUCT_PACKAGES += \
 # IMS
 PRODUCT_PACKAGES += \
     libbase_shim \
-    ims-ext-common
+    ims-ext-common \
+    ims-ext-common_system
 
 # Input
 PRODUCT_COPY_FILES += \
