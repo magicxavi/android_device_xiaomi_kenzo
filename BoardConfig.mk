@@ -156,8 +156,10 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 26838785024 # 26838801408 - 16384
 
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
+BOARD_ROOT_EXTRA_SYMLINKS := \
+    /mnt/vendor/persist:/persist
+
 BOARD_ROOT_EXTRA_FOLDERS := \
-    /persist \
     /firmware \
     /dsp
 
