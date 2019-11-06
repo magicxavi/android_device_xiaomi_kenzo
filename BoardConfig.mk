@@ -161,7 +161,8 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
 
 BOARD_ROOT_EXTRA_FOLDERS := \
     /firmware \
-    /dsp
+    /dsp \
+    /cust
 
 # FM
 BOARD_HAVE_QCOM_FM := true
