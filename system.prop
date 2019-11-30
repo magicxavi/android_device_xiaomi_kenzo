@@ -122,6 +122,7 @@ mm.enable.sec.smoothstreaming=true
 mmp.enable.3g2=true
 media.aac_51_output_enabled=true
 persist.media.treble_omx=false
+media.stagefright.thumbnail.prefer_hw_codecs=true
 
 # NITZ
 persist.rild.nitz_plmn=
