@@ -35,6 +35,7 @@ char const *heapstartsize;
 char const *heapgrowthlimit;
 char const *heapsize;
 char const *heapminfree;
+char const *heapmaxfree;
 
 void check_device()
 {
@@ -48,12 +49,14 @@ void check_device()
         heapgrowthlimit = "288m";
         heapsize = "768m";
         heapminfree = "512k";
+		heapmaxfree = "8m";
     } else {
         // from - phone-xxhdpi-2048-dalvik-heap.mk
         heapstartsize = "16m";
-        heapgrowthlimit = "256m";
+        heapgrowthlimit = "192m";
         heapsize = "512m";
         heapminfree = "2m";
+		heapmaxfree = "8m";
     }
 }
 
@@ -66,5 +69,5 @@ void vendor_load_properties()
     property_set("dalvik.vm.heapsize", heapsize);
     property_set("dalvik.vm.heaptargetutilization", "0.75");
     property_set("dalvik.vm.heapminfree", heapminfree);
-    property_set("dalvik.vm.heapmaxfree", "8m");
+    property_set("dalvik.vm.heapmaxfree", heapmaxfree);
 }
