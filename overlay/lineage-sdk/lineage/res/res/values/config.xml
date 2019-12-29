@@ -32,6 +32,20 @@
          config to 7. -->
     <integer name="config_deviceHardwareKeys">83</integer>
 
+    <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
+         This integer should equal the sum of the corresponding value for each
+         of the following keys present:
+             1 - Home
+             2 - Back  
+             4 - Menu  
+             8 - Assistant (search)
+            16 - App switch
+            32 - Camera
+            64 - Volume rocker 
+         For example, a device with Home, Back and Menu keys would set this
+         config to 7. -->
+     <integer name="config_deviceHardwareWakeKeys">64</integer>     
+     
     <!-- Control the behavior when the user long presses the app switch button.
             0 - Nothing
             1 - Menu key
@@ -60,4 +74,7 @@
          For example, a device with notification and battery lights that supports
          pulsating and RGB control would set this config to 75. -->
     <integer name="config_deviceLightCapabilities">107</integer>
+     
+         <!-- Is the notification LED brightness adjustable ? Used to decide if the user can set LED brightness -->
+    <bool name="config_adjustableNotificationLedBrightness">true</bool>
 </resources>
