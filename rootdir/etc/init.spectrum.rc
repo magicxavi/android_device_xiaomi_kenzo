@@ -1,0 +1,382 @@
+# SPECTRUM KERNEL MANAGER
+# Ramdisk file for profile based kernel management
+# Implimentation inspired by Franco's fku profiles
+
+# Initialization
+on property:sys.boot_completed=1
+   # Set default profile on first boot
+   exec u:r:init:s0 root root -- /init.spectrum.sh
+   exec u:r:su:s0 root root -- /init.spectrum.sh
+   exec u:r:init:s0 root root -- /init.qcom.zram.sh
+   exec u:r:su:s0 root root -- /init.qcom.zram.sh
+   # Enable Spectrum support
+   setprop spectrum.support 1
+
+   setprop persist.spectrum.kernel Bloody-Kernel-Mod-x69
+
+# Balance (default profile)
+on property:persist.spectrum.profile=0
+    ##Setting Permissions
+    chmod 0666 /sys/block/mmcblk0/queue/scheduler
+    chmod 0666 /sys/block/mmcblk1/queue/scheduler
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+    chmod 0664 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chmod 0664 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+	chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+	chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+    ## Adreno Idler
+    write /sys/module/adreno_idler/parameters/adreno_idler_active "Y"
+    ## CPU Governors BIG
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "interactive"
+    restorecon -R /sys/devices/system/cpu # must restore after interactive
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 85
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 20000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay "19000 1382400:39000"
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1382400
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "85 1382400:90 1747200:80"
+    ## CPU Governors small
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+    restorecon -R /sys/devices/system/cpu # must restore after interactive
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 80
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 59000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 1305600
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 60000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "1 691200:80"
+    ## IOSCHEDs
+    write /sys/block/mmcblk0/queue/scheduler "maple"
+    write /sys/block/mmcblk1/queue/scheduler "fiops"
+    chmod 0444 /sys/block/mmcblk0/queue/scheduler
+    chmod 0444 /sys/block/mmcblk1/queue/scheduler
+    ## 1843MHz (Default)
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq "1440000"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq "1843200"
+    ## 400MHz (Default)
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq "400000"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq "400000"
+    chmod 0444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 0444 /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+    ## InternalSD read_ahead
+    write /sys/block/mmcblk0/queue/read_ahead_kb 1024
+    write /sys/block/mmcblk1/queue/read_ahead_kb 1024
+    ## sched boost
+	write /proc/sys/kernel/sched_boost 0
+    ## Set Arch Specific Power Settings
+    chmod 0664 /sys/kernel/sched/arch_power
+    write /sys/kernel/sched/arch_power 0
+  	## Thermal Throttling
+	write /sys/module/msm_thermal/parameters/enabled "Y"
+	write /sys/module/msm_thermal/core_control/enabled 0
+	write /sys/module/msm_thermal/parameters/temp_threshold 65
+    ## Adreno Boost
+    write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 0
+    ## devfreq
+    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
+    write /sys/class/devfreq/cpubw/governor "bw_hwmon"
+    ## GPU Clk
+    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 621330000
+    write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 266666667
+    chmod 0444 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chmod 0444 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+	write /sys/class/kgsl/kgsl-3d0/max_gpuclk 621330000
+	write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
+	write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 6
+	write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 1
+    ## Power Efficient Workqueue
+    chmod 0664 /sys/module/workqueue/parameters/power_efficient
+    write /sys/module/workqueue/parameters/power_efficient "N"
+	## RCU
+	write /sys/module/rcutree/parameters/rcu_idle_gp_delay 4
+	write /sys/module/rcutree/parameters/rcu_idle_lazy_gp_delay 6000
+    
+# Performance
+on property:persist.spectrum.profile=1
+    ##Setting Permissions
+    chmod 0666 /sys/block/mmcblk0/queue/scheduler
+    chmod 0666 /sys/block/mmcblk1/queue/scheduler
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+    chmod 0664 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chmod 0664 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    ## Adreno Idler
+    write /sys/module/adreno_idler/parameters/adreno_idler_active "N"
+    ## CPU Governors BIG
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "interactive"
+    restorecon -R /sys/devices/system/cpu # must restore after interactive
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 90
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1843200
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack 30000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "70 998400:75 1056000:80 1113600:85 1190400:90 1248000:85 1305600:80 1382400:75 1612800:70 1747200:90 1843200:82"
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 30000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/boost 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/align_windows 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif 1
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 20000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/boostpulse_duration 80000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/sampling_down_factor 40000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load 1
+    ## CPU Governors small
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+    restorecon -R /sys/devices/system/cpu # must restore after interactive
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 90
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 1440000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack 30000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "80 400000:33 691200:25 806400:50 1017600:65 1190400:70 1305600:85 1382400:90 1401600:92 1440000:98"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 50000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/align_windows 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 60000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/boost 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse_duration 80000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/sampling_down_factor 40000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
+    ## FIOPS
+    write /sys/block/mmcblk0/queue/scheduler "fiops"
+    write /sys/block/mmcblk1/queue/scheduler "fiops"
+    chmod 0444 /sys/block/mmcblk0/queue/scheduler
+    chmod 0444 /sys/block/mmcblk1/queue/scheduler
+    ## 1843MHz (Default)
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq "1440000"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq "1843200"
+#	write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq "2016000"
+    ## 400MHz (Default)
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq "400000"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq "400000"
+    chmod 0444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 0444 /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+    ## InternalSD read_ahead_kb 512
+    write /sys/block/mmcblk0/queue/read_ahead_kb 512
+    write /sys/block/mmcblk1/queue/read_ahead_kb 512
+    ## Enable sched boost
+	write /proc/sys/kernel/sched_boost 1
+    ## Set Arch Specific Power Settings
+    #chmod 0664 /sys/kernel/sched/arch_power
+    #write /sys/kernel/sched/arch_power 0
+  	## Thermal Throttling
+	write /sys/module/msm_thermal/parameters/enabled "Y"
+	write /sys/module/msm_thermal/core_control/enabled 1
+	write /sys/module/msm_thermal/parameters/temp_threshold 60
+    ## Adreno Boost #On
+    write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 1    
+    ## devfreq
+    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "performance"
+    write /sys/class/devfreq/cpubw/governor "performance"
+    ## GPU Clk
+    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 621330000
+    write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 432000000
+	write /sys/class/kgsl/kgsl-3d0/max_gpuclk 621330000
+	write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
+	write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 3
+	write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
+    chmod 0444 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chmod 0444 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    ## Power Efficient Workqueue
+    chmod 0664 /sys/module/workqueue/parameters/power_efficient
+    write /sys/module/workqueue/parameters/power_efficient "N"
+	## RCU
+	write /sys/module/rcutree/parameters/rcu_idle_gp_delay 4
+	write /sys/module/rcutree/parameters/rcu_idle_lazy_gp_delay 6000
+
+# Battery
+on property:persist.spectrum.profile=2
+    ##Setting Permissions
+    chmod 0666 /sys/block/mmcblk0/queue/scheduler
+    chmod 0666 /sys/block/mmcblk1/queue/scheduler
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+    chmod 0664 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chmod 0664 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    ## Adreno Idler
+    write /sys/module/adreno_idler/parameters/adreno_idler_active "Y"
+    ## CPU Governors
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "interactive"
+    restorecon -R /sys/devices/system/cpu # must restore after interactive
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+    restorecon -R /sys/devices/system/cpu # must restore after interactive
+    ## Tweaks GlassFish big
+	write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 91
+	write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 0
+	write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 30000
+	write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1305600
+	write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack 480000
+	write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "70 940800:90 1056000:99"
+	write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 0
+	write /sys/devices/system/cpu/cpu4/cpufreq/interactive/boost 0
+	write /sys/devices/system/cpu/cpu4/cpufreq/interactive/align_windows 1
+	write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif 1
+	write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load 0
+	write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 0
+	write /sys/devices/system/cpu/cpu4/cpufreq/interactive/boostpulse_duration 0
+    ## Tweaks GlassFish little
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 91
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 60000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 1305600
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack 480000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "80 400000:70 1017600:99"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/boost 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/align_windows 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse_duration 0
+    ## BFQ
+    write /sys/block/mmcblk0/queue/scheduler "bfq"
+    write /sys/block/mmcblk1/queue/scheduler "bfq"
+    chmod 0444 /sys/block/mmcblk0/queue/scheduler
+    chmod 0444 /sys/block/mmcblk1/queue/scheduler
+    ## 1305MHz
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq "1305600"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq "998400"
+    ## 400MHz
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq "400000"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq "400000"
+    chmod 0444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 0444 /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+    ## InternalSD read_ahead_kb (128)
+    write /sys/block/mmcblk0/queue/read_ahead_kb 128
+    write /sys/block/mmcblk1/queue/read_ahead_kb 128
+	## Enable sched boost
+	write /proc/sys/kernel/sched_boost 0
+    ## Set Arch Specific Power Settings
+    #chmod 0664 /sys/kernel/sched/arch_power
+    #write /sys/kernel/sched/arch_power 1
+  	## Thermal Throttling
+	write /sys/module/msm_thermal/parameters/enabled "Y"
+	write /sys/module/msm_thermal/core_control/enabled 1
+	write /sys/module/msm_thermal/parameters/temp_threshold 60
+    ## Adreno Boost
+    write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 0
+    ## devfreq
+    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "powersave"
+    write /sys/class/devfreq/cpubw/governor "powersave"
+    ## GPU Clk
+    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 432000000
+    write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 133333333
+	write /sys/class/kgsl/kgsl-3d0/max_gpuclk 432000000
+	write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 3
+	write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 8
+	write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 1
+    chmod 0444 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chmod 0444 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    ## Power Efficient Workqueue
+    chmod 0664 /sys/module/workqueue/parameters/power_efficient
+    write /sys/module/workqueue/parameters/power_efficient "Y"
+	## RCU
+	write /sys/module/rcutree/parameters/rcu_idle_gp_delay 12
+	write /sys/module/rcutree/parameters/rcu_idle_lazy_gp_delay 18000
+
+# Gaming
+on property:persist.spectrum.profile=3
+    ##Setting Permissions
+    chmod 0666 /sys/block/mmcblk0/queue/scheduler
+    chmod 0666 /sys/block/mmcblk1/queue/scheduler
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+    chmod 0664 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chmod 0664 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    # Adreno Idler
+    write /sys/module/adreno_idler/parameters/adreno_idler_active "N"
+    ## CPU Governors BIG
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "interactive"
+    restorecon -R /sys/devices/system/cpu # must restore after interactive
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 90
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1305600
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack -1
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "70 998400:73 1056000:64 1113600:80 1190400:61 1248000:69 1305600:64 1382400:74 1612800:69 1747200:67 1843200:72"
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 30000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/boost 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/align_windows 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif 1
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 20000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/boostpulse_duration 80000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/sampling_down_factor 40000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load 1
+    ## CPU Governors small
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+    restorecon -R /sys/devices/system/cpu # must restore after interactive
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 85
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 40000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 1382400
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack -1
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "80 400000:33 691200:25 806400:50 1017600:65 1190400:70 1305600:85 1382400:90 1401600:92 1440000:98"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 50000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/align_windows 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 60000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/boost 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse_duration 80000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/sampling_down_factor 40000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
+    ## FIOPS
+    write /sys/block/mmcblk0/queue/scheduler "fiops"
+    write /sys/block/mmcblk1/queue/scheduler "fiops"
+    chmod 0444 /sys/block/mmcblk0/queue/scheduler
+    chmod 0444 /sys/block/mmcblk1/queue/scheduler
+    ## 1843MHz
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq "1440000"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq "1843200"
+#	write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq "2016000"
+    ## 400MHz
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq "400000"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq "400000"
+    chmod 0444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 0444 /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+    ## InternalSD read_ahead_kb (512)
+    write /sys/block/mmcblk0/queue/read_ahead_kb 512
+    write /sys/block/mmcblk1/queue/read_ahead_kb 512
+    ## Enable sched boost
+	write /proc/sys/kernel/sched_boost 1
+    ## Set Arch Specific Power Settings
+    #chmod 0664 /sys/kernel/sched/arch_power
+    #write /sys/kernel/sched/arch_power 0
+  	## Thermal Throttling
+	write /sys/module/msm_thermal/parameters/enabled "Y"
+	write /sys/module/msm_thermal/core_control/enabled 1
+	write /sys/module/msm_thermal/parameters/temp_threshold 70
+    ## Adreno Boost
+    write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 3
+    ## devfreq
+    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "performance"
+    write /sys/class/devfreq/cpubw/governor "performance"
+    ## GPU Clk
+    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 621330000
+    write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 432000000
+	write /sys/class/kgsl/kgsl-3d0/max_gpuclk 621330000
+	write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
+	write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 3
+	write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
+    chmod 0444 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chmod 0444 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    ## Power Efficient Workqueue
+    chmod 0664 /sys/module/workqueue/parameters/power_efficient
+    write /sys/module/workqueue/parameters/power_efficient "N"
+	## RCU
+	write /sys/module/rcutree/parameters/rcu_idle_gp_delay 4
+	write /sys/module/rcutree/parameters/rcu_idle_lazy_gp_delay 6000
