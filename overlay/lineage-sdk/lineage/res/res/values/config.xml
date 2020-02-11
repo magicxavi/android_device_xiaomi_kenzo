@@ -77,4 +77,8 @@
      
          <!-- Is the notification LED brightness adjustable ? Used to decide if the user can set LED brightness -->
     <bool name="config_adjustableNotificationLedBrightness">true</bool>
+
+    <!-- Whether device needs to wait for Qualcomm MPCTL service to start
+         before setting power profiles on boot. -->
+    <bool name="config_waitForMpctlOnBoot">true</bool>
 </resources>
