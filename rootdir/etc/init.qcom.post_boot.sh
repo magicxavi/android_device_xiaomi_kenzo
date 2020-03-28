@@ -246,4 +246,3 @@ setprop sys.io.scheduler "cfq"
 
 # Set Sound Control parameters after boot
 echo 5 > /sys/kernel/sound_control/speaker_gain
-echo "3 3" > /sys/kernel/sound_control/earpiece_gain
