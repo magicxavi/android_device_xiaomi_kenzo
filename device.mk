@@ -206,8 +206,9 @@ PRODUCT_PACKAGES += \
 
 # FM
 PRODUCT_PACKAGES += \
-    FMRadio \
-    libfmjni
+    FM2 \
+    libqcomfm_jni \
+	qcom.fmradio
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
