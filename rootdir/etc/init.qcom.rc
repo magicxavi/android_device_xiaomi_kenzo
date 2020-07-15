@@ -59,6 +59,11 @@ on post-fs
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
+    
+    start vendor.qseecomd
+    wait_for_prop sys.listeners.registered true
+    write /dev/ipa 1
+    
     # Allow subsystem (modem etc) debugging
     write /sys/kernel/boot_adsp/boot 1
     write /sys/kernel/boot_cdsp/boot 1
@@ -243,7 +248,7 @@ on boot
     write /sys/kernel/sched/arch_power 1
 
 on post-fs
-    start qseecomd
+    start vendor.qseecomd
 
 
     # Create hvdcp_opti directory
@@ -461,6 +466,12 @@ on post-fs-data
 
     # Enable hvdcp
     setprop persist.hvdcp.allow_opti 1
+    
+service vendor.qseecomd /system/vendor/bin/qseecomd
+    class core
+    user root
+    group root
+    writepid /dev/cpuset/system-background/tasks
 
 service iop /system/vendor/bin/iop
     class main
