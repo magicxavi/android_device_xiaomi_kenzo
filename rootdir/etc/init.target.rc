@@ -64,11 +64,6 @@ on property:persist.usb.chgdisabled=1
 on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
 
-service vendor.qseecomd /system/vendor/bin/qseecomd
-   class core
-   user root
-   group root
-
 service vendor.thermal-engine /system/vendor/bin/thermal-engine
    class main
    user root
