@@ -141,7 +141,7 @@ public:
     }
 };
 
-IMPLEMENT_META_INTERFACE(FingerprintDaemonCallback,
+DO_NOT_DIRECTLY_USE_ME_IMPLEMENT_META_INTERFACE(FingerprintDaemonCallback,
         "android.hardware.fingerprint.IFingerprintDaemonCallback");
 
 }; // namespace android
