@@ -64,6 +64,7 @@ on early-boot
     setrlimit 8 67108864 67108864
     
     start vendor.qseecomd
+    exec u:r:qti_init_shell:s0 -- /vendor/bin/init.qcom.early_boot.sh
     wait_for_prop sys.listeners.registered true
     write /dev/ipa 1
     
@@ -633,6 +634,7 @@ on charger
     setprop persist.sys.usb.config mass_storage
     load_system_props
     start vendor.qcom-post-boot
+    start vendor.power_off_alarm
 
 on property:init.svc.surfaceflinger=restarting
     stop vendor.hwcomposer-2-1
