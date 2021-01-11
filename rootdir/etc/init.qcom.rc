@@ -494,7 +494,7 @@ on property:sys.boot_completed=1
 
 on property:vold.decrypt=trigger_restart_framework
     restart vendor.camera-provider-2-4
-    start vendor.wcnss-service
+    start wcnss-service
     start config_bt_addr
 
 service vendor.cnd /system/vendor/bin/cnd
