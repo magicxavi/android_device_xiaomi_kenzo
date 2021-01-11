@@ -632,6 +632,7 @@ service vendor.qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
 on property:sys.boot_completed=1
     start vendor.qcom-post-boot
     trigger enable-low-power
+    restart cameraserver
 
 on property:init.svc.recovery=running
     trigger enable-low-power
