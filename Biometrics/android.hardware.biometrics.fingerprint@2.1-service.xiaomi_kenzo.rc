@@ -43,4 +43,4 @@ on property:persist.sys.fp.goodix=0
     stop gx_fpd
 
 on property:persist.sys.fp.goodix=1
-    start gx_fpd
+    enable gx_fpd
