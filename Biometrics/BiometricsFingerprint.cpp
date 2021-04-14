@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "android.hardware.biometrics.fingerprint@2.0-service"
-#define LOG_VERBOSE "android.hardware.biometrics.fingerprint@2.0-service"
+#define LOG_TAG "android.hardware.biometrics.fingerprint@2.1-service.xiaomi_kenzo"
+#define LOG_VERBOSE "android.hardware.biometrics.fingerprint@2.1-service.xiaomi_kenzo"
 
 #include <hardware/hw_auth_token.h>
 #include <hardware/hardware.h>
@@ -232,6 +232,7 @@ Return<RequestStatus> BiometricsFingerprint::setActiveGroup(uint32_t gid,
         return RequestStatus::SYS_EINVAL;
     }
     int ret = mDevice->set_active_group(mDevice, gid, storePath.c_str());
+    /* set active group hack for goodix */
     if ((ret > 0) && is_goodix)
         ret = 0;
     return ErrorFilter(ret);
@@ -361,12 +362,11 @@ void BiometricsFingerprint::notify(const fingerprint_msg_t *msg) {
             }
             break;
         case FINGERPRINT_TEMPLATE_ENUMERATING:
-            // ignored, won't happen for 2.0 HALs
             break;
     }
 }
 
-} // namespace implementation
+}  // namespace implementation
 }  // namespace V2_1
 }  // namespace fingerprint
 }  // namespace biometrics

@@ -448,10 +448,6 @@ on post-fs-data
     # Create vpp directory
     mkdir /data/vendor/vpp 0770 media media
 
-    # Fingerprint
-    mkdir /data/fpc 0770 system system
-    mkdir /data/fpc/s 0770 system system
-
     #Create FTM_AP dir for factory test
     mkdir /data/FTM_AP 0775 system system
 
@@ -666,30 +662,3 @@ service vendor.power_off_alarm /vendor/bin/power_off_alarm
     disabled
     oneshot
 
-on post-fs-data
-    mkdir /data/goodix 0700 system system
-
-on boot
-    chown system system  /dev/goodix_fp
-    chmod 0644 /dev/goodix_fp
-
-on property:ro.boot.fpsensor=fpc
-    setprop persist.sys.fp.goodix 0
-    setprop ro.hardware.fingerprint fpc
-
-on property:ro.boot.fpsensor=gdx
-    setprop persist.sys.fp.goodix 1
-    setprop ro.hardware.fingerprint gdx
-
-service gx_fpd /system/bin/gx_fpd
-    class late_start
-    user system
-    group system
-    disabled
-    writepid /dev/cpuset/system-background/tasks
-
-on property:persist.sys.fp.goodix=0
-    stop gx_fpd
-
-on property:persist.sys.fp.goodix=1
-    enable gx_fpd

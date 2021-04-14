@@ -1,0 +1,46 @@
+service fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_kenzo
+    # "class hal" causes a race condition on some devices due to files created
+    # in /data. As a workaround, postpone startup until later in boot once
+    # /data is mounted.
+    class late_start
+    user system
+    group system uhid input
+    writepid /dev/cpuset/system-background/tasks
+
+on post-fs-data
+    mkdir /data/goodix 0700 system system
+    mkdir /data/fpc 0770 system system
+    mkdir /data/fpc/s 0770 system system
+
+on boot
+    # Fingerprint Permissions
+    chown system system /dev/goodix_fp
+    chmod 0644 /dev/goodix_fp
+
+    chown system system /sys/devices/soc.0/fpc_fpc1020.*/irq
+    chmod 0660 /sys/devices/soc.0/fpc_fpc1020.*/irq
+    chown system /sys/devices/soc.0/fpc_fpc1020.*/hw_reset
+    chmod 0660 /sys/devices/soc.0/fpc_fpc1020.*/hw_reset
+    chown system system /sys/devices/soc.0/fpc_fpc1020.*/wakeup_enable
+    chmod 0660 /sys/devices/soc.0/fpc_fpc1020.*/wakeup_enable
+
+on property:ro.boot.fpsensor=fpc
+    setprop persist.sys.fp.goodix 0
+    setprop ro.hardware.fingerprint fpc
+
+on property:ro.boot.fpsensor=gdx
+    setprop persist.sys.fp.goodix 1
+    setprop ro.hardware.fingerprint gdx
+
+service gx_fpd /system/bin/gx_fpd
+    class late_start
+    user system
+    group system
+    disabled
+    writepid /dev/cpuset/system-background/tasks
+
+on property:persist.sys.fp.goodix=0
+    stop gx_fpd
+
+on property:persist.sys.fp.goodix=1
+    start gx_fpd
