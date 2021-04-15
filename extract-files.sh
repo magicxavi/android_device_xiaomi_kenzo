@@ -59,8 +59,4 @@ setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 extract "${MY_DIR}/proprietary-files-qc.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 
-DEVICE_BLOB_ROOT="${ANDROID_ROOT}"/vendor/"$VENDOR"/"$DEVICE"/proprietary
-patchelf --replace-needed libbase.so libbase-v28.so $COMMON_BLOB_ROOT/vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
-patchelf --add-needed "libbase_shim.so" COMMON_BLOB_ROOT/vendor/bin/imsrcsd
-
 "${MY_DIR}/setup-makefiles.sh"
