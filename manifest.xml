@@ -513,4 +513,18 @@
          </interface>
          <fqname>@1.0::IPerf/default</fqname>
      </hal>
+    <!-- WFD HAL Service -->
+    <hal format="hidl">
+        <name>com.qualcomm.qti.wifidisplayhal</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IHDCPSession</name>
+            <instance>wifidisplayhdcphal</instance>
+        </interface>
+        <interface>
+            <name>IDSManager</name>
+            <instance>wifidisplaydshal</instance>
+        </interface>
+    </hal>
 </manifest>
