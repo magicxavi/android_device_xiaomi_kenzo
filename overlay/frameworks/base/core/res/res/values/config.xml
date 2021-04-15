@@ -474,8 +474,8 @@
          will not debounce light sensor readings -->
     <integer name="config_lightSensorWarmupTime">200</integer>
 
+   <!-- Allow values to be customized for hardware
+             buttons backlight.  Do not translate. -->
+    <bool name="config_deviceHasVariableButtonBrightness">true</bool>
+  
 </resources>
-
-
-
-
