@@ -1,2 +1,11 @@
 # kenzo device proprietary files - from MIUI Global 10.2.1.0, all pinned
 
+# ACDB Data
+etc/acdbdata/MTP/msm8976-tasha-snd-card/MTP_WCD9335_Bluetooth_cal.acdb|5636b72a576242ef548b193692aaaa205ea23ee4
+etc/acdbdata/MTP/msm8976-tasha-snd-card/MTP_WCD9335_General_cal.acdb|cc7fb8e3088320c108e33c3bfc3425ac45e751ea
+etc/acdbdata/MTP/msm8976-tasha-snd-card/MTP_WCD9335_Global_cal.acdb|d34db892d0ad7e5ec9efecde41f44480c03acef2
+etc/acdbdata/MTP/msm8976-tasha-snd-card/MTP_WCD9335_Handset_cal.acdb|a0badaea20a1bba670eca24bae0978c4606745a2
+etc/acdbdata/MTP/msm8976-tasha-snd-card/MTP_WCD9335_Hdmi_cal.acdb|030476241cb94c0824cacfce0f29c6ac1b3276f1
+etc/acdbdata/MTP/msm8976-tasha-snd-card/MTP_WCD9335_Headset_cal.acdb|b39d15c77e551ccc6d97b7baf77cbe639791b834
+etc/acdbdata/MTP/msm8976-tasha-snd-card/MTP_WCD9335_Speaker_cal.acdb|f867516c7cf1429f3f2b0ac016f45d4a9b8769dd
+
