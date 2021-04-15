@@ -455,3 +455,6 @@ vendor/lib/libmmcamera_s5k5e8_yx13.so|f6b7c8a20b1e5198edb2e3ffb52eb0e4097c1879
 vendor/lib/libmmcamera_s5k5e8_z5e8yab.so|a26a1024da9325a6501538f80d4094115c32d446
 vendor/lib/libmmcamera_s5k5e8_z5e8yab_eeprom.so|b6c2aa380654e1e76869683e3f04bbd4534552dc
 vendor/lib/libmmcamera_sunny_omi5f06_eeprom.so|1481fd23807faa0233b8af9cdfa4056c9316f44b
+
+# Charger
+vendor/bin/hvdcp_opti|755ab92099b91c0110902012337af19ef6ce15ec
