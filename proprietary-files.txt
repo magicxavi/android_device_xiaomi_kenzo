@@ -461,3 +461,15 @@ vendor/bin/hvdcp_opti|755ab92099b91c0110902012337af19ef6ce15ec
 
 # Display calibration data
 etc/pp_calib_data_sharp_r63315_1080p_video_mode_dsi_panel.xml|08d8a40dc05ab00eb0709319b99e507124aacfdd
+
+# Fingerprint sensor
+bin/gx_fpd|17cdbe0fb695ae09c9b4b8a2de4d928ecb74caef
+lib/hw/fingerprint.msm8952.so:lib/hw/fingerprint.fpc.so|259c88ef54cb0d85fb633a2888809c18143f5ebd
+lib/lib_fpc_tac_shared.so|2cd933fa2134b98f261cda42e32e4072191c2a6f
+lib64/hw/fingerprint.goodix.default.so:lib64/hw/fingerprint.gdx.so|4728f6fb57ce0ab17131c7b85fb6cf96fa44adf4
+lib64/hw/fingerprint.msm8952.so:lib64/hw/fingerprint.fpc.so|495fd5fdb005faa3ca3ee69b82b18074c0d8f082
+lib64/hw/gxfingerprint.default.so|b0680eb9704602e87225b509603f6834dac15e3b
+lib64/lib_fpc_tac_shared.so|725bc2362a62bec98ec37011b4c6d8cd73171611
+lib64/libfp_client.so|905607fe4eda8f1936abb41f7872161f40f16335
+lib64/libfpnav.so|2adacbd9098471e17eebfdb0bb208d035fc3e116
+lib64/libfpservice.so|c4e799b029c4329dc78b5c25a910ecf4c312774c
