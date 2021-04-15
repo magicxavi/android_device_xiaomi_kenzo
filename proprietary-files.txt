@@ -473,3 +473,31 @@ lib64/lib_fpc_tac_shared.so|725bc2362a62bec98ec37011b4c6d8cd73171611
 lib64/libfp_client.so|905607fe4eda8f1936abb41f7872161f40f16335
 lib64/libfpnav.so|2adacbd9098471e17eebfdb0bb208d035fc3e116
 lib64/libfpservice.so|c4e799b029c4329dc78b5c25a910ecf4c312774c
+
+# Firmware - Fingerprint
+etc/firmware/goodixfp.b00|c077db0cf7493f714ad3675775996105ba9c8c55
+etc/firmware/goodixfp.b01|9941b0ce0e161b1510be3c7401d1f1fbff60c0a0
+etc/firmware/goodixfp.b02|3223580f5044da654f8393e6e0b93eed8bbe6175
+etc/firmware/goodixfp.b03|dc0df9a73bf1926ebb588be6ce0c70b00d57e4d9
+etc/firmware/goodixfp.mdt|3580e9470d76f86270ca8f29090197c550850538
+
+# Firmware - general
+etc/firmware/DE.o.msm8952|a7c25709e65409e559b8a6849646bca027c4f40e
+etc/firmware/DE.o.msm8976|676a46b8d21ac238fa12fbccdead6521dce2926c
+
+# Firmware - Media
+etc/firmware/venus-v1.b00|2f48a9b1b757b1ed978c80996f65e4f23b11404d
+etc/firmware/venus-v1.b01|48587d32b48b46a71bd0dc278b09fba0c6968106
+etc/firmware/venus-v1.b02|91617efa302140bf4d946fb173f7cb5eb9d0aa4d
+etc/firmware/venus-v1.b03|f4dd46f86a23c5d974f7ca2f84da1441d33115d0
+etc/firmware/venus-v1.b04|c1756e0567d10a1173f481cd367ff4637b2dd77f
+etc/firmware/venus-v1.mbn|84080bf9128b325d6c52143129aea3c932e50ee1
+etc/firmware/venus-v1.mdt|3156b0aeef473554c1b96a2b8c678d2b9c269c06
+etc/firmware/venus.b00|067bc9950354db9e83a0c0a6ecee0837be47e1e6
+etc/firmware/venus.b01|5a636b5fbd551a72280a615134290c14aa6d79e3
+etc/firmware/venus.b02|fa63eeef09b6c0a39c8a734f37c277fc01687b75
+etc/firmware/venus.b03|29b29b6d20e9f0caa49ff151c3b125f029eebac5
+etc/firmware/venus.b04|c1756e0567d10a1173f481cd367ff4637b2dd77f
+etc/firmware/venus.mbn|36e6190a041412152bff5e0055a342e5cdc94c6c
+etc/firmware/venus.mdt|00ef8b773c2674e7c03c4e46a4abb869f4dcb38a
+
