@@ -63,9 +63,9 @@ echo $set_almk_ppr_adj > /sys/module/process_reclaim/parameters/min_score_adj
 # Calculate vmpressure_file_min as below & set for 64 bit:
 # vmpressure_file_min = last_lmk_bin + (last_lmk_bin - last_but_one_lmk_bin)
 if [ $MemTotal -gt 2097152 ]; then
-    echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
+    echo "18432,23040,27648,32356,46080,51200" > /sys/module/lowmemorykiller/parameters/minfree
 else
-    echo "14746,18432,22118,25805,40000,55000" > /sys/module/lowmemorykiller/parameters/minfree
+    echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
 fi
 
 echo 1 > /sys/module/process_reclaim/parameters/enable_process_reclaim
@@ -73,7 +73,7 @@ echo 70 > /sys/module/process_reclaim/parameters/pressure_max
 echo 50 > /sys/module/process_reclaim/parameters/pressure_min
 echo 30 > /sys/module/process_reclaim/parameters/swap_opt_eff
 echo 0 >  /sys/module/lowmemorykiller/parameters/lmk_fast_run
-echo 768 > /sys/module/process_reclaim/parameters/per_swap_size
+echo 1024 > /sys/module/process_reclaim/parameters/per_swap_size
 echo 0 > /sys/module/vmpressure/parameters/allocstall_threshold
 echo 55 > /proc/sys/vm/swappiness
 echo 0 > /proc/sys/vm/page-cluster
@@ -86,7 +86,7 @@ minfree_4="${minfree_3#*,}" ; rem_minfree_4="${minfree_4%%,*}"
 minfree_5="${minfree_4#*,}"
 vmpres_file_min=$((minfree_5 + (minfree_5 - rem_minfree_4)))
 echo $vmpres_file_min > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
-echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+echo 0 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
 
 
 chown -h system /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
@@ -154,7 +154,7 @@ echo 80 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
 echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
 echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
 echo 40000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
-echo 691200 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+echo 400000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 echo 59000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
 echo 1305600 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
 echo "1 691200:80" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
@@ -167,7 +167,7 @@ echo 20000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
 echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
 echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
 echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/sampling_down_factor
-echo 883200 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+echo 400000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
 echo 60000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis
 echo 1382400 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
 echo "19000 1382400:39000" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
