@@ -1,0 +1,2 @@
+# kenzo device proprietary files - from MIUI Global 10.2.1.0, all pinned
+
