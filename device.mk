@@ -75,6 +75,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
 
+# Doze mode
+PRODUCT_PACKAGES += \
+    CustomDoze
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@5.0 \
@@ -86,7 +90,6 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@5.0-service \
     android.hardware.soundtrigger@2.1-impl \
     android.hardware.soundtrigger@2.1-service \
-    audio.a2dp.default \
     audio.primary.msm8952 \
     audio.r_submix.default \
     audio.usb.default \
@@ -97,6 +100,12 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libtinycompress \
     tinymix
+
+# Audio
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    android.hardware.bluetooth.a2dp@1.0-impl \
+    android.hardware.bluetooth.a2dp@1.0-service
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/aanc_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/aanc_tuning_mixer.txt \
@@ -434,7 +443,9 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service
+
 
 # VR
 PRODUCT_PACKAGES += \
