@@ -117,9 +117,6 @@ vendor/lib/libqomx_jpegenc_pipe.so|02ec8aa8ff65fd00a46363233501ce0578414885
 # Camera blob - pinned from smartron
 vendor/lib/libmmcamera_trueportrait_lib.so|bb806a775921491031ad1d569dd15dc23c00af83
 
-# Camera blob - pinned from daisy
-vendor/lib/libmmcamera_stillmore_lib.so|1006d44580fbaa5b54bef0245cfb65df27ea9394
-
 # Camera actuators
 vendor/lib/libactuator_ad5816g.so|a9928fbe5617fec005761c24fc07d603c3962485
 vendor/lib/libactuator_ad5823.so|087b957c1edd56e57b088e443520372fb72f6612
