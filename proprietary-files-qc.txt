@@ -162,33 +162,24 @@ vendor/lib64/vendor.qti.latency@2.0.so|68fd46a6f26e2e101a6ecb0c40643fd5e137d716
 framework/vendor.qti.data.factory-V1.0-java.jar|2fd093c0589fff10de82440766cfc36a14ab2898
 framework/vendor.qti.hardware.data.qmi-V1.0-java.jar|07b5b9c4f43ed79a5886b1d7033987bed7750a59
 
-# DPM - from Nokia 7 Plus Onyx_00WW-user 9 PPR1.180610.009 00WW_3_190 release-keys
-bin/dpmd|985cdaedd7524abb646535954f860db24893ff20
-etc/dpm/dpm.conf|5f19d3984b5291ac956552bda2a84c10c535df0a
-etc/init/dpmd.rc|52ca6ad920a1804e4ff608113cece063730f5e0c
-etc/permissions/com.qti.dpmframework.xml|36b94c9338069e434b83359a92cdc7ff62b822df
-etc/permissions/dpmapi.xml|ded29f9befaef20a7ccee0c75427fda1d1d04890
-framework/com.qti.dpmframework.jar|494751931cdf1ff203bcc99a95e8d177caae78c0
-framework/dpmapi.jar|4940bdc99ec676e8c6372057f91ffc303f72b49d
-framework/tcmclient.jar|d63f61a2905cc48f0eed56cce5dc0ca80f7ada3a
--priv-app/dpmserviceapp/dpmserviceapp.apk|b3e3bdcfa42f2a233ed40e3cab7b404464836f97
-lib/com.qualcomm.qti.dpm.api@1.0.so|976a762fa11a65e05ae600faa764f8c2eb2b24e8
-lib/libdiag_system.so|ae4f95ef4dd3399a0ad4f1f9669012eee670c314
-lib/libdpmctmgr.so|cb6e250989f77cfe5eac053595a8f15b2da30e40
-lib/libdpmfdmgr.so|abe21a458c724309dceb79e46f5695b0f73cccfe
-lib/libdpmframework.so|22f046bafae3e4a344a81ace02952d940e644208
-lib/libdpmtcm.so|b597f2c781f84b0a6df6f8bbf39ec8e1a47063d3
-lib64/com.qualcomm.qti.dpm.api@1.0.so|009b3ce36d66d0a7c82f34c388f6c9ffd3010613
-lib64/libdiag_system.so|7f746ad2f26c0abff9844ff4002d68b47723be55
-lib64/libdpmctmgr.so|4cc67f727f267c48b94e987ff7dc42d8fa8b9be7
-lib64/libdpmfdmgr.so|405939951343db041c69da6557a79172d417519f
-lib64/libdpmframework.so|5701fb61b6559c5623b9025dd5aa9dd5b4fee7f1
-lib64/libdpmtcm.so|9a87b9a61f9aead66d1f7eabda9193d29d242ad6
-vendor/bin/dpmQmiMgr|cbc0d7b8f9e94ffe7f0af315ec1661df67364b53
-vendor/lib/libdpmqmihal.so|ce999657f36d176dae81a29ea6aac86bde68db1f
-vendor/lib64/libdpmqmihal.so|6992b6a68dcc941b44a0de1dc2af7b473a41ee55
-vendor/lib/com.qualcomm.qti.dpm.api@1.0.so|ba1feb5ad48042d0d8d12efecf93f6f92f865138
-vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|ff9f1157b93f7b75a701c714837a8d622f1a8f79
+# DPM - from daisy - xiaomi/daisy/daisy_sprout:10/QKQ1.191002.002/V11.0.18.0.QDLMIXM
+product/bin/dpmd|cac8f3eadeeec202f56d5b5f7a8c75e82e376d9f
+product/etc/dpm/dpm.conf|95e27da8c989e96c6faea6f0697bce11955b62a5
+product/etc/init/dpmd.rc|7f95195a89fddce06b93006a737701270e91f669
+product/etc/permissions/com.qti.dpmframework.xml|4613f8b8629d0b823e6aaab45d399ac30da06c09
+product/etc/permissions/dpmapi.xml|0991b3069308620cfcad53873e9f09af181b981d
+product/framework/com.qti.dpmframework.jar|e39a7e06af2d1e95a3724c19c36b8716277f53a1
+product/framework/dpmapi.jar|4696df9793ad676b305d53b5d7ce65ecf74771ad
+product/lib64/com.qualcomm.qti.dpm.api@1.0.so|a70cfc1be3e06cde6318d6969e114429fe1950bb
+product/lib64/libdpmctmgr.so|7ee0d1d40a8fc7fea924602db13717235ed2c2aa
+product/lib64/libdpmfdmgr.so|cb0157da0ffe6827471662a5b7881e85165cb5aa
+product/lib64/libdpmframework.so|8b2183e4b50a033b10c640cbc0b14a39ed5dca16
+product/lib64/libdpmtcm.so|a98ab3c419ebe49c6f3351ef4fa64ebda65d0e7d
+vendor/bin/dpmQmiMgr|a43829d478ebc243b5f7307b44aa501a7a3c8211
+vendor/etc/init/dpmQmiMgr.rc|67569302d3a8828a9118c835e5b69c51b0c8ac68
+vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|a70cfc1be3e06cde6318d6969e114429fe1950bb
+vendor/lib64/libdpmqmihal.so|25d74c0e867f023b71a7c599ab6d213c7de2725d
+-product/priv-app/dpmserviceapp/dpmserviceapp.apk|9fd873c5330c03c62dfdeb6540b5984588295319
 
 # DRM
 vendor/bin/qseecomd
