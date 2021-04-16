@@ -247,17 +247,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee
 
-# IMS
-PRODUCT_PACKAGES += \
-    libbase_shim \
-    ims-ext-common \
-    ims-ext-common_system \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    android.hardware.radio@1.0 \
-    android.hardware.radio.config@1.0 \
-    android.hardware.secure_element@1.0
-
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/idc/uinput-fpc.idc:system/usr/idc/uinput-fpc.idc
@@ -268,8 +257,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/configs/keylayout/msm8976-tashalite-snd-card_Button_Jack.kl:system/usr/keylayout/msm8976-tashalite-snd-card_Button_Jack.kl \
     $(LOCAL_PATH)/configs/keylayout/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl
-PRODUCT_BOOT_JARS += \
-    ims-ext-common_system
 
 # IPA Manager
 #PRODUCT_PACKAGES += \
@@ -412,10 +399,9 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+    android.hardware.radio@1.0 \
+    android.hardware.radio.config@1.0 \
+    android.hardware.secure_element@1.0
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
@@ -437,6 +423,18 @@ PRODUCT_PACKAGES += \
 # Strip debug
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
+
+# Telephony
+PRODUCT_PACKAGES += \
+    ims-ext-common \
+    ims-ext-common_system \
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    ims-ext-common_system \
+    telephony-ext
 
 # TextClassifier smart selection model files
 PRODUCT_PACKAGES += \
