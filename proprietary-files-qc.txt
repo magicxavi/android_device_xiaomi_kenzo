@@ -207,6 +207,11 @@ vendor/lib64/lib-sec-disp.so
 vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libssd.so
 
+# DRM (Widevine) - from daisy - daisy_sprout:10/QKQ1.191002.002/V11.0.18.0.QDLMIXM
+vendor/bin/hw/android.hardware.drm@1.2-service.widevine|e130b8f1c8d46d8a185b00cba5ff8a2a871ee94c
+vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|dee5b7838ac561a2292e89fc0c4ccd1932224215
+vendor/lib64/libwvhidl.so|72ebe6aa5c8f5a681979423149896b3d2201d974
+
 # Energy awareness - from smartron (smartron-rimo02a-8.0.0-T5524INDURC-475)
 vendor/bin/energy-awareness|8ec3f96a118c37a2dda0d70122ff075861641ccc
 
@@ -577,11 +582,6 @@ vendor/lib64/libthermalioctl.so
 vendor/bin/time_daemon
 -vendor/lib/libtime_genoff.so
 -vendor/lib64/libtime_genoff.so
-
-# Widevine DRM - from Mi A2 jasmine_sprout 9 PKQ1.180904.001 V10.0.1.0.PDIMIFJ release-keys
-vendor/bin/hw/android.hardware.drm@1.1-service.widevine|320749f5ce293176b9de747d13db7f026748b955
-vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc|5a01d337c1d375ee24a6c8992ba91f54afb7637e
-vendor/lib64/libwvhidl.so|0c50c3cd9985fbda6a17d961f8618e6e62e545ab
 
 # Wi-Fi
 bin/wcnss_service
