@@ -167,6 +167,7 @@ persist.radio.hw_mbn_update=0
 persist.radio.multisim.config=dsds
 persist.radio.videopause.mode=1
 persist.radio.schd.cache=3500
+persist.sys.fflag.override.settings_network_and_internet_v2=true
 persist.vendor.radio.custom_ecc=1
 persist.vendor.radio.rat_on=combine
 persist.vendor.radio.sib16_support=1
