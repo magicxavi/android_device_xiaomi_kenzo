@@ -53,6 +53,19 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
+function blob_fixup() {
+    case "${1}" in
+
+    # Add shim for libbase LogMessage functions
+    vendor/bin/imsrcsd | vendor/lib64/lib-uceservice.so)
+        for  LIBBASE_SHIM in $(grep -L "libbase_shim.so" "${2}"); do
+            patchelf --add-needed "libbase_shim.so" "$LIBBASE_SHIM"
+        done
+        ;;
+
+    esac
+}
+
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
