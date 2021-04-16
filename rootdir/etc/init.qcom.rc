@@ -453,6 +453,7 @@ on post-fs-data
     setprop persist.hvdcp.allow_opti 1
     
     start vendor.dataqti
+    start vendor.dataadpl
     
 service vendor.qseecomd /system/vendor/bin/qseecomd
     class core
