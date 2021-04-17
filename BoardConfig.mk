@@ -104,18 +104,6 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
 BOARD_CHARGER_ENABLE_SUSPEND := true
 WITH_CUSTOM_CHARGER := false
 
-# Dex
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-      WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
-      DONT_DEXPREOPT_PREBUILTS := true
-      USE_DEX2OAT_DEBUG := false
-      WITH_DEXPREOPT_DEBUG_INFO := false
-    endif
-  endif
-endif
 
 # Display
 BOARD_USES_ADRENO := true
