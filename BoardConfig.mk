@@ -257,3 +257,5 @@ TARGET_ENABLE_MEDIADRM_64 := true
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/kenzo/BoardConfigVendor.mk
+
+BUILD_BROKEN_DUP_RULES := true
