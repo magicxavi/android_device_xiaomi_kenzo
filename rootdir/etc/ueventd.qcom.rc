@@ -203,6 +203,7 @@
 /dev/tsc_ci0              0660   media       media
 
 # sensors
+/dev/sensors              0660   system     system
 /sys/devices/i2c-12/12-*  pollrate_ms 0664 system system
 /sys/devices/f9925000.i2c/i2c-0/0-*                 enable         0660    input    system
 /sys/devices/f9925000.i2c/i2c-0/0-*                 poll_delay     0660    input    system
@@ -264,7 +265,6 @@
 
 # Fingerprint device
 /dev/qbt1000              0660   system     system
-/dev/fpc1020              0666   system     system
 
 #ImproveTouch device
 /dev/hbtp_input           0660   system     system
@@ -295,6 +295,7 @@
  FPC
 /sys/devices/soc.0/fpc_fpc1020.*        irq             0660        system      system
 /sys/devices/soc.0/fpc_fpc1020.*        enable_wakeup   0660        system      system
+/dev/fpc1020              0666   system     system
 
 # sys-fs display
 /sys/class/graphics/fb*     dynamic_fps              0664    system  graphics
