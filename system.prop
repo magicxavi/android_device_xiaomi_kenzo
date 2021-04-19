@@ -139,7 +139,7 @@ persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 
 # Perf
-ro.vendor.extension_library=libqti-perfd-client.so
+ro.vendor.extension_library=libqti-perfd-client_system.so
 
 # QTI Performance
 vendor.enable_prefetch=1 
