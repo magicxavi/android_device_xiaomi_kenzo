@@ -583,6 +583,7 @@ vendor/lib64/lib-imsrcsbaseimpl.so|91d7d52d083de952e30ef747e8af9e02d899c8e9
 vendor/lib64/lib-siputility.so|1bda76c4ad6321348d910048e5004871ba7916d5
 vendor/lib64/lib-uceservice.so|1e66bf03e7a8d5469f147201d55701a0f36f3477
 vendor/lib64/vendor.qti.ims.callinfo@1.0.so|a752c392c4f2dc03180f41bbe286a9daad915d21
+vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so|ba5ffc588422c1b0f3ac8135314db2c88d62671e
 -product/priv-app/ims/ims.apk|9c4ca91e0ec7a567d22251d7ca0640abf13fdd7b
 
 # Sensors - from daisy - xiaomi/daisy/daisy_sprout:10/QKQ1.191002.002/V11.0.18.0.QDLMIXM
