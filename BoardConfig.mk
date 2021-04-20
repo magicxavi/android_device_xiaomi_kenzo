@@ -218,10 +218,6 @@ PROTOBUF_SUPPORTED := true
 USE_DEVICE_SPECIFIC_DATA_IPA_CFG_MGR := true
 TARGET_USES_ALTERNATIVE_MANUAL_NETWORK_SELECT := true
 
-# Shims
-TARGET_LD_SHIM_LIBS := \
-    /system/lib64/lib-imsvideocodec.so|libshim_ims.so
-
 # SELinux
 #include device/qcom/sepolicy-legacy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor

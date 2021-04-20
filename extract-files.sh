@@ -53,17 +53,6 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
-function blob_fixup() {
-    case "${1}" in
-
-    # Move ims libs to product
-    product/etc/permissions/com.qualcomm.qti.imscmservice.xml)
-        sed -i -e 's|file="/system/framework/|file="/product/framework/|g' "${2}"
-        ;;
-
-    esac
-}
-
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
