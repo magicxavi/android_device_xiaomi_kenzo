@@ -1,6 +1,17 @@
-# kenzo device proprietary files
+# kenzo device proprietary files - from Smartron/srtphone/rimo02a:8.0.0/T5524INDURC-475/475, unless pinned
+
+# ADSP
+lib/libqvr_adsp_driver_stub.so
+vendor/bin/adsprpcd
+vendor/lib/libadsprpc.so
+vendor/lib/libadsp_default_listener.so
+vendor/lib/libfastcvadsp_stub.so
+vendor/lib/libfastcvopt.so
+vendor/lib64/libadsp_default_listener.so
+vendor/lib64/libadsprpc.so
 
 # ADSP modules
+lib/rfsa/adsp/libqvr_adsp_driver_skel.so
 vendor/lib/rfsa/adsp/libFastRPC_AUE_Forward_skel.so
 vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_skel.so
 vendor/lib/rfsa/adsp/libadsp_fd_skel.so
@@ -31,6 +42,9 @@ vendor/lib64/libadiertac.so
 vendor/lib64/libaudcal.so
 vendor/lib64/libaudioalsa.so
 vendor/lib64/libhwdaphal.so
+vendor/lib64/soundfx/libqcbassboost.so
+vendor/lib64/soundfx/libqcreverb.so
+vendor/lib64/soundfx/libqcvirt.so
 
 # Bluetooth - from daisy - xiaomi/daisy/daisy_sprout:10/QKQ1.191002.002/V11.0.18.0.QDLMIXM
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|378ad8ce95651b4bf81ad73aaffbdf0666c55432
@@ -153,17 +167,18 @@ vendor/lib64/libdpmqmihal.so|25d74c0e867f023b71a7c599ab6d213c7de2725d
 # DRM
 vendor/bin/qseecomd
 vendor/lib/libQSEEComAPI.so
-vendor/lib64/libGPreqcancel.so
-vendor/lib64/libGPreqcancel_svc.so
+vendor/lib/libGPreqcancel_svc.so
+vendor/lib/libGPreqcancel.so
+vendor/lib64/lib-sec-disp.so
 vendor/lib64/libQSEEComAPI.so
 vendor/lib64/libSecureUILib.so
 vendor/lib64/libStDrvInt.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
-vendor/lib64/libqisl.so
+vendor/lib64/libGPreqcancel_svc.so
+vendor/lib64/libGPreqcancel.so
 vendor/lib64/librpmb.so
 vendor/lib64/libsecureui.so
-vendor/lib64/lib-sec-disp.so
 vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libssd.so
 
@@ -172,8 +187,8 @@ vendor/bin/hw/android.hardware.drm@1.2-service.widevine|e130b8f1c8d46d8a185b00cb
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|dee5b7838ac561a2292e89fc0c4ccd1932224215
 vendor/lib64/libwvhidl.so|72ebe6aa5c8f5a681979423149896b3d2201d974
 
-# Energy awareness - from smartron (smartron-rimo02a-8.0.0-T5524INDURC-475)
-vendor/bin/energy-awareness|8ec3f96a118c37a2dda0d70122ff075861641ccc
+# Energy awareness
+vendor/bin/energy-awareness
 
 # Gatekeeper
 vendor/lib64/hw/gatekeeper.msm8952.so
@@ -306,17 +321,19 @@ vendor/lib64/libtinyxml2_1.so|56d4d5d0ea010f951de219c7b9fd2c9695a5b9d2
 -vendor/lib/libsdm-disp-vndapis.so|9bd99e0024f5abcc285f64aadea8725556f16789
 -vendor/lib64/libsdm-disp-vndapis.so|b1dede9efa81e8d0374343612ad7ad0d967e8e29
 
-# Graphics (Vulkan) - from SRT Phone
-vendor/lib/hw/vulkan.msm8952.so|45a826c86321a3acb3556fed7988f595354ccb6c
-vendor/lib64/hw/vulkan.msm8952.so|a442c83cc25798de78fa0336358a85c8a7daccc3
+# Graphics (Vulkan)
+vendor/lib/hw/vulkan.msm8952.so
+vendor/lib64/hw/vulkan.msm8952.so
 
 # Keystore
 vendor/lib64/hw/keystore.msm8952.so
 
-# Listen	
-vendor/lib/hw/sound_trigger.primary.msm8952.so	
-vendor/lib/libadpcmdec.so	
-vendor/lib/libsmwrapper.so	
+# Listen
+vendor/lib/hw/sound_trigger.primary.msm8952.so
+vendor/lib/libadpcmdec.so
+vendor/lib/libsmwrapper.so
+vendor/lib/vendor.qti.voiceprint@1.0.so
+vendor/lib64/vendor.qti.voiceprint@1.0.so	
 
 # Media - from daisy - xiaomi/daisy/daisy_sprout:10/QKQ1.191002.002/V11.0.18.0.QDLMIXM
 vendor/lib/libI420colorconvert.so|0dfd4d0e49f4250e98e781483048a296a679e05e
@@ -364,6 +381,7 @@ lib/vendor.qti.hardware.qdutils_disp@1.0.so
 -lib64/vendor.display.color@1.0.so
 lib64/vendor.display.postproc@1.0.so
 lib64/vendor.qti.hardware.qdutils_disp@1.0.so
+vendor/bin/mm-pp-daemon
 vendor/lib/libdisp-aba.so
 vendor/lib/libsd_sdk_display.so
 vendor/lib/vendor.display.color@1.0_vendor.so
