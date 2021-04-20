@@ -455,11 +455,6 @@ if [ ! -f /firmware/verinfo/ver_info.txt -o "$prev_version_info" != "$cur_versio
     cp /firmware/verinfo/ver_info.txt /data/vendor/radio/ver_info.txt
     chown radio.radio /data/vendor/radio/ver_info.txt
 fi
-baseband_version=$(strings /firmware/image/modem.b12 2> /dev/null | grep -m 1 "^MPSS.TA")
-baseband_version_prop=$(getprop gsm.version.baseband)
-if [ -n "$baseband_version" ] && [ "$baseband_version" != "$baseband_version_prop" ];then
-    setprop gsm.version.baseband "$baseband_version"
-fi
 
 if [ -f /system/etc/mbn_ota.txt ] && [ ! -f /data/misc/radio/modem_config/mbn_ota.txt ]; then
     cp /system/etc/mbn_ota.txt /data/vendor/radio/modem_config
