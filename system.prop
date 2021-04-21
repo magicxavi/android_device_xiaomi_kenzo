@@ -76,7 +76,7 @@ ro.vendor.core_ctl_max_cpu=2
 
 # CNE/DPM
 persist.vendor.cne.feature=1
-persist.vendor.dpm.feature=5
+persist.vendor.dpm.feature=1
 
 # Dex2oat use 6 cores during bootup dex compilation
 dalvik.vm.boot-dex2oat-threads=6
