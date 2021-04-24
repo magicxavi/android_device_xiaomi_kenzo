@@ -204,8 +204,6 @@ on boot
     chown root system /sys/kernel/dload/dload_mode
     chmod 0660 /sys/kernel/dload/dload_mode
 
-    chown wifi wifi /sys/module/wlan/parameters/fwpath
-
     chown system system /sys/class/backlight/panel0-backlight/brightness
     chown system system /sys/class/backlight/panel0-backlight/max_brightness
 
@@ -667,11 +665,6 @@ on charger
 on property:init.svc.surfaceflinger=restarting
     stop vendor.hwcomposer-2-1
     start vendor.hwcomposer-2-1
-
-service vendor.time_daemon /system/vendor/bin/time_daemon
-    class main
-    user root
-    group root
 
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
