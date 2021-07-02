@@ -185,7 +185,7 @@ vendor/lib64/libssd.so
 # DRM (Widevine) - from daisy - daisy_sprout:10/QKQ1.191002.002/V11.0.18.0.QDLMIXM
 vendor/bin/hw/android.hardware.drm@1.2-service.widevine|e130b8f1c8d46d8a185b00cba5ff8a2a871ee94c
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|dee5b7838ac561a2292e89fc0c4ccd1932224215
-vendor/lib64/libwvhidl.so|72ebe6aa5c8f5a681979423149896b3d2201d974
+vendor/lib64/libwvhidl.so|7161a1f0992da071e842655fcd42f20fa36909ac
 
 # Energy awareness
 vendor/bin/energy-awareness
@@ -464,7 +464,7 @@ vendor/lib64/libril-qc-qmi-1.so|c3c2e8d01a35574bd116551d793baa1a7cc6e25d
 vendor/lib64/libril-qc-radioconfig.so|709a1ea2451c1d73e3ec10e71bbf94a032e5e07d
 vendor/lib64/libril-qcril-hook-oem.so|2e318f760743cd840161a3cdd740af14df0ea5c1
 vendor/lib64/librilqmiservices.so|f9aa60b9e3ff1af7cff48f45c1b344e02d264f5c
-vendor/lib64/libsettings.so|4db1dcaf0aa08559db448dd3fc494b1766fc0276
+vendor/lib64/libsettings.so|52219397bdfe2737dbf5a007fa43592a788483a2
 vendor/lib64/libsystem_health_mon.so|c93728503ca53ecadbb3bc5495f2b52a1843c320
 vendor/lib64/vendor.qti.hardware.radio.am@1.0_vendor.so|318c76800318990d796094e6d636cff11a3c6197
 vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0_vendor.so|25be983eef69d449c3082c6071b9b2b859241240
