@@ -360,11 +360,6 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     libxml2
 
-# QTI performance
- PRODUCT_BOOT_JARS += \
-     QPerformance \
-     UxPerformance
-
 # QMI
 PRODUCT_PACKAGES += \
     libjson
