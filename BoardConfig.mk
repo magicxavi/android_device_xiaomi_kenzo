@@ -40,8 +40,6 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno510
 
 TARGET_USES_64_BIT_BINDER := true
 
-BUILD_BROKEN_PHONY_TARGETS := true
-
 ENABLE_CPUSETS := true
 
 # Assertions
