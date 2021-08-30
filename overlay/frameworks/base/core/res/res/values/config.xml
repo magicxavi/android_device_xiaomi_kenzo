@@ -436,10 +436,10 @@
              buttons backlight.  Do not translate. -->
     <bool name="config_deviceHasVariableButtonBrightness">true</bool>
 
-    <!-- Smart Charging -->
-    <string name="config_SmartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/charging_enabled</string>
-    <string name="config_SmartChargingSupspendValue" translatable="false">0</string>
-    <string name="config_SmartChargingResumeValue" translatable="false">1</string>
+    <!-- Adaptive charge sysfs node and value for suspend/resume charging-->
+   <string name="config_adaptiveChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/charging_enabled</string>
+   <string name="config_adaptiveChargingSuspendValue" translatable="false">0</string>
+   <string name="config_adaptiveChargingResumeValue" translatable="false">1</string>
 
     <!-- Whether device supports an alt. ambient display -->
     <bool name="config_alt_ambient_display">true</bool>
