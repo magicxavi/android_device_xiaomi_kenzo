@@ -558,11 +558,8 @@ service config_bt_addr /system/vendor/bin/btnvtool -O
     oneshot
 
 # FM
-on property:hw.fm.init=0
-    write /sys/module/radio_iris_transport/parameters/fmsmd_set 0
-
-on property:hw.fm.init=1
-    write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
+on property:hw.fm.init=*
+    write /sys/module/radio_iris_transport/parameters/fmsmd_set ${hw.fm.init}
 
 service vendor.ipacm /system/vendor/bin/ipacm
     class main
