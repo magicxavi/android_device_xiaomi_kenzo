@@ -14,4 +14,7 @@
 <resources>
     <!-- Whether to add AGPS parameter settings -->
     <bool name="config_agps_enabled">true</bool>
+
+    <!-- Enable WPA2 to WPA3 auto-upgrade -->
+    <bool translatable="false" name="config_wifiSaeUpgradeEnabled">false</bool>
 </resources>
