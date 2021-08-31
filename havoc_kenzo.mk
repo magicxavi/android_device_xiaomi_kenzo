@@ -44,8 +44,8 @@ USE_CCACHE=0
 
 # Official-ify
 HAVOC_BUILD_TYPE := Official
-#TARGET_GAPPS_ARCH := arm64
-#WITH_GAPPS=true
+TARGET_GAPPS_ARCH := arm64
+WITH_GAPPS=true
 TARGET_INCLUDE_LIVE_WALLPAPERS := false
 
 # Use the latest approved GMS identifiers unless running a signed build
