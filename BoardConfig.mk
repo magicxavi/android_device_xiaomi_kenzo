@@ -179,6 +179,9 @@ TARGET_KERNEL_CONFIG := lineageos_kenzo_defconfig
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true
 
+# Legacy memfd
+TARGET_HAS_MEMFD_BACKPORT := true
+
 # Lights
 BOARD_LIGHTS_VARIANT := aw2013
 
