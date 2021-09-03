@@ -177,7 +177,7 @@ TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8956
 TARGET_KERNEL_CONFIG := lineageos_kenzo_defconfig
 
 # Keymaster
-TARGET_PROVIDES_KEYMASTER := true
+TARGET_PROVIDES_KEYMASTER := false
 
 # Legacy memfd
 TARGET_HAS_MEMFD_BACKPORT := true

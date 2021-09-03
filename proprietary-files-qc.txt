@@ -321,9 +321,6 @@ vendor/lib64/libtinyxml2_1.so|56d4d5d0ea010f951de219c7b9fd2c9695a5b9d2
 vendor/lib/hw/vulkan.msm8952.so
 vendor/lib64/hw/vulkan.msm8952.so
 
-# Keystore
-vendor/lib64/hw/keystore.msm8952.so
-
 # Listen
 vendor/lib/hw/sound_trigger.primary.msm8952.so
 vendor/lib/libadpcmdec.so
