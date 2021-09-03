@@ -216,7 +216,6 @@ TARGET_USES_ALTERNATIVE_MANUAL_NETWORK_SELECT := true
 include device/qcom/sepolicy-legacy/sepolicy.mk
 #BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(VENDOR_PATH)/sepolicy/private
 #BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(VENDOR_PATH)/sepolicy/public
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy-minimal
 SELINUX_IGNORE_NEVERALLOWS := true
 
 # Thermal
