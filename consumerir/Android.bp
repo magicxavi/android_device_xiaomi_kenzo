@@ -14,10 +14,10 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.ir@1.0-service-custom",
+    name: "android.hardware.ir@1.0-service.kenzo",
     relative_install_path: "hw",
     defaults: ["hidl_defaults"],
-    init_rc: ["android.hardware.ir@1.0-service.rc"],
+    init_rc: ["android.hardware.ir@1.0-service.kenzo.rc"],
     srcs: ["service.cpp", "ConsumerIr.cpp"],
     shared_libs: [
         "libbase",

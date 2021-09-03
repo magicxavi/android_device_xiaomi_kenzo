@@ -151,7 +151,7 @@ PRODUCT_PACKAGES += \
 
 # Consumerir
 PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-service-custom
+    android.hardware.ir@1.0-service.kenzo
 
 # Charger
 include $(LOCAL_PATH)/rootdir/charger/charger.mk
