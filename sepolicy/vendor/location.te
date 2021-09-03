@@ -4,3 +4,10 @@ allow location wifi_vendor_data_file:dir search;
 # /data/vendor/wifi/wpa
 allow location wpa_data_file:dir rw_dir_perms;
 allow location wpa_data_file:sock_file create_file_perms;
+
+allow location self:capability net_raw;
+allow location sysfs:file { read } ;
+allow location wifi_prop:file { read } ;
+allow location sysfs:file { open } ;
+allow location wifi_prop:file { open } ;
+allow location wifi_prop:file { getattr } ;

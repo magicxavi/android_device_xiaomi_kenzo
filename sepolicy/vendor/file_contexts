@@ -3,15 +3,11 @@
 /dev/socket/adpl_cmd_uds_file                                                               u:object_r:dataadpl_socket:s0
 /(vendor|system/vendor)/bin/adpl                                                            u:object_r:adpl_exec:s0
 
-# Amplifier
-/dev/i2c_smartpa                                                                            u:object_r:audio_device:s0
-
-# Block devices
-/dev/block/mmcblk0p25                                                                       u:object_r:devinfo_block_device:s0
-/dev/block/platform/soc.0/7824900\.sdhci/by-name/devinfo                                    u:object_r:devinfo_block_device:s0
-
 # Camera
 /data/vendor/qcam(/.*)?                                                                     u:object_r:vendor_camera_data_file:s0
+
+# Cache
+/dev/block/platform/soc.0/7824900.sdhci/by-name/cache                                       u:object_r:cache_block_device:s0
 
 # Capacitive Keys
 /(vendor|system/vendor)/bin/init\.proc_touchpanel\.sh                                       u:object_r:vendor_init_proc_touchpanel_exec:s0
@@ -22,10 +18,8 @@
 /(vendor|system/vendor)/bin/charger                                                         u:object_r:vendor_charger_exec:s0
 
 # Consumer IR
-/system/bin/hw/android\.hardware\.ir@1\.0-service\.leeco_s2                                 u:object_r:hal_ir_leeco_s2_exec:s0
-
-/dev/ttyHSL1                                                                                u:object_r:consumer_ir_device:s0
-/sys/remote/enable                                                                          u:object_r:sysfs_ir_enable:s0
+/dev/lirc[0-9]*                                                                             u:object_r:lirc_device:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.ir@1\.0-service\.kenzo                    u:object_r:hal_ir_kenzo_exec:s0
 
 # DRM
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.[1-3]-service.clearkey             u:object_r:hal_drm_clearkey_exec:s0
@@ -36,21 +30,39 @@
 # DPMD
 /(product|system/product)/bin/dpmd                                                          u:object_r:dpmd_exec:s0
 
-# Fingerprint
-/(vendor|system/vendor|system)/bin/gx_fpd                                                   u:object_r:goodix_exec:s0
-/system/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.leeco_s2     u:object_r:hal_fingerprint_default_exec:s0
+# DSP
+/dev/block/platform/soc.0/7824900.sdhci/by-name/dsp                                         u:object_r:dsp_block_device:s0
 
+# DT2W
+/sys/android_touch/doubletap2wake                                                           u:object_r:sysfs_dt2w:s0
+
+# FRP
+/dev/block/platform/soc.0/7824900.sdhci/by-name/config                                      u:object_r:frp_block_device:s0
+
+# Fingerprint
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_kenzo u:object_r:hal_fingerprint_default_exec:s0
+
+#FPC
+/dev/socket/fpce                                                                            u:object_r:fpc_socket:s0
+/data/fpc(/.*)?                                                                             u:object_r:fpc_data_file:s0
+/sys/devices/soc.0/fpc_fpc1020.*/hw_reset                                                   u:object_r:sysfs_fpc:s0
+/sys/devices/soc.0/fpc_fpc1020.*/irq                                                        u:object_r:sysfs_fpc:s0
+/sys/devices/soc.0/fpc_fpc1020.*/wakeup_enable                                              u:object_r:sysfs_fpc:s0
+
+# Goodix
+/dev/gf66xx-spi                                                                             u:object_r:goodix_device:s0
 /dev/goodix_fp                                                                              u:object_r:goodix_device:s0
+/(vendor|system/vendor|system)/bin/gx_fpd                                                   u:object_r:goodix_exec:s0
+
+# Legacy paths
+/system/bin/mm-qcamera-daemon                                                               u:object_r:mm-qcamerad_exec:s0
+/system/bin/wcnss_service                                                                   u:object_r:wcnss_service_exec:s0
+/system/bin/energy-awareness                                                                u:object_r:energyawareness_exec:s0
+/vendor/bin/wcnss_filter                                                                    u:object_r:wcnss_filter_exec:s0
+/vendor/bin/qseecomd                                                                        u:object_r:tee_exec:s0
 
 # GNSS
 /(vendor|system/vendor)/bin/hw/android\.hardware\.gnss@2\.0-service-qti                     u:object_r:hal_gnss_qti_exec:s0
-
-# Perf
-/system/bin/perfservice                                                                     u:object_r:perfservice_exec:s0
-/sys/devices/soc\.0/[a-z0-9]+\.qcom,msmcci-ccimon(/.*)?                                     u:object_r:sysfs_devfreq:s0
-/sys/devices/soc\.0/qcom,gpubw\.[a-z0-9]+/devfreq/qcom,gpubw\.[a-z0-9]+(/.*)?               u:object_r:sysfs_devfreq:s0
-/sys/devices/soc\.0/qcom,cpubw\.[a-z0-9]+/devfreq/qcom,cpubw\.[a-z0-9]+(/.*)?               u:object_r:sysfs_devfreq:s0
-/(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.perf@2\.0-service                     u:object_r:hal_perf_default_exec:s0
 
 # Persist
 /(mnt/vendor)/persist/bluetooth(/.*)?                                                       u:object_r:persist_bluetooth_file:s0
@@ -76,7 +88,5 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power\.stats@1\.0-service\.mock           u:object_r:hal_power_stats_default_exec:s0
 
 # Sensor
-/(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@1\.0-service\.s2                  u:object_r:hal_sensors_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@1\.0-service\.kenzo                  u:object_r:hal_sensors_default_exec:s0
 
-# HALs
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.s2                      u:object_r:hal_lineage_touch_default_exec:s0

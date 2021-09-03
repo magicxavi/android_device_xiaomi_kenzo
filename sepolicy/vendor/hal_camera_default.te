@@ -1,3 +1,5 @@
 allow hal_camera_default camera_data_file:sock_file { write };
 allow hal_camera_default sysfs:file write;
 allow hal_camera_default sysfs_leds:dir search;
+allow hal_camera_default camera_data_file:dir { search } ;
+allow hal_camera_default init:unix_dgram_socket { sendto } ;

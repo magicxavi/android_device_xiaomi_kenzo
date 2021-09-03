@@ -1,0 +1,4 @@
+allow hal_bluetooth_default bluetooth_data_file:dir ra_dir_perms;
+allow hal_bluetooth_default bluetooth_data_file:file create_file_perms;
+allow hal_bluetooth_default mnt_vendor_file:dir { search } ;
+allow hal_bluetooth_default qmuxd_socket:dir { search } ;

@@ -4,3 +4,8 @@ allow vold hal_bootctl_hwservice:hwservice_manager find;
 
 # For setting read_ahead_kb
 allow vold sysfs_mmc_host:file w_file_perms;
+
+allow vold adsprpcd_file:dir r_dir_perms;
+allow vold proc_touchpanel:dir r_dir_perms;
+allow vold persist_file:dir r_dir_perms;
+allow vold system_data_file:file { ioctl open };

@@ -1,4 +1,4 @@
-allow system_server consumer_ir_device:chr_file { rw_file_perms };
+allow system_server lirc_device:chr_file { rw_file_perms };
 
 allow system_server unlabeled:file unlink;
 
@@ -11,3 +11,20 @@ allow system_server app_zygote:process getpgid;
 get_prop(system_server, exported_camera_prop)
 get_prop(system_server, userspace_reboot_config_prop)
 get_prop(system_server, userspace_reboot_exported_prop)
+
+allow system_server proc_touchpanel:dir search;
+allow system_server proc_touchpanel:file rw_file_perms;
+allow system_server sysfs_dt2w:dir search;
+allow system_server sysfs_dt2w:file rw_file_perms;
+allow system_server init:binder { call } ;
+allow system_server block_device:blk_file { read open write getattr ioctl } ;
+allow system_server default_android_hwservice:hwservice_manager find;
+allow system_server default_android_service:service_manager add;
+allow system_server proc_touchpanel:dir search;
+allow system_server proc_touchpanel:file rw_file_perms;
+allow system_server sdcardfs:file read;
+allow system_server sysfs_dt2w:dir search;
+allow system_server sysfs_dt2w:file rw_file_perms;
+allow system_server vfat:dir { open read };
+allow system_server adb_data_file:file { getattr read };
+allow system_server adb_data_file:dir getattr;

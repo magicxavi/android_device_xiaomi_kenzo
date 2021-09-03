@@ -5,3 +5,5 @@ allow rild system_prop:property_service set;
 allow rild vendor_file:file ioctl;
 
 allow rild tombstone_data_file:dir search;
+
+allow rild shell_exec:file { execute } ;

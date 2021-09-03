@@ -1,1 +1,13 @@
 allow wcnss_service self:capability { setgid setuid };
+
+allow wcnss_service media_rw_data_file:dir rw_dir_perms;
+allow wcnss_service media_rw_data_file:file rw_file_perms;
+allow wcnss_service sdcardfs:dir rw_dir_perms;
+allow wcnss_service sdcardfs:file create_file_perms;
+allow wcnss_service property_socket:sock_file { write } ;
+allow wcnss_service serialno_prop:file { read open getattr } ;
+allow wcnss_service servicemanager:binder { call } ;
+allow wcnss_service sysfs:file { read open } ;
+allow wcnss_service wifi_data_file:dir { search write add_name remove_name } ;
+allow wcnss_service init:unix_stream_socket { connectto } ;
+allow wcnss_service wifi_data_file:file { write open create setattr } ;

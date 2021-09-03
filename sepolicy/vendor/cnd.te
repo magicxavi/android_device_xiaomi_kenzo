@@ -6,3 +6,11 @@ allow cnd wpa_data_file:dir rw_dir_perms;
 allow cnd wpa_data_file:sock_file create_file_perms;
 
 binder_call(cnd, radio)
+
+allow cnd default_android_hwservice:hwservice_manager { add } ;
+allow cnd sysfs:file { read } ;
+allow cnd wifi_prop:file { read } ;
+allow cnd sysfs:file { open } ;
+allow cnd wifi_prop:file { open } ;
+allow cnd wifi_prop:file { getattr } ;
+allow cnd system_wpa_socket:sock_file { unlink };

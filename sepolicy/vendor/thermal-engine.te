@@ -1,3 +1,16 @@
 allow thermal-engine sysfs_batteryinfo:dir search;
 
 set_prop(thermal-engine, system_prop)
+
+allow thermal-engine system_data_file:dir rw_dir_perms;
+allow thermal-engine hwservicemanager_prop:file read;
+allow thermal-engine hwservicemanager_prop:file open;
+allow thermal-engine hwservicemanager_prop:file getattr;
+allow thermal-engine device:file { open write };
+allow thermal-engine hal_thermal_hwservice:hwservice_manager add;
+allow thermal-engine hidl_base_hwservice:hwservice_manager add;
+allow thermal-engine hwservicemanager:binder transfer;
+allow thermal-engine sysfs:dir { open read };
+allow thermal-engine sysfs:file { getattr open read write };
+allow thermal-engine hwservicemanager:binder { call };
+allow thermal-engine thermal-engine:capability { dac_override dac_read_search };

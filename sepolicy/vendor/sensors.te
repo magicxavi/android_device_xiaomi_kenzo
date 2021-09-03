@@ -1,2 +1,5 @@
 allow sensors mnt_vendor_file:dir { rw_dir_perms };
 allow sensors mnt_vendor_file:file { rw_file_perms };
+allow time_daemon time_data_file:dir { search } ;
+allow sensors persist_file:dir { getattr search } ;
+allow sensors sysfs:file { read open } ;

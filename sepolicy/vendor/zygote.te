@@ -1,3 +1,5 @@
 allow zygote device:file w_file_perms;
 
 get_prop(zygote, exported_camera_prop)
+
+allow zygote theme_prop:file { getattr read open } ;

@@ -6,3 +6,5 @@ allow ims self:capability2 wake_alarm;
 
 allow ims hal_imsrcsd_hwservice:hwservice_manager add;
 allow ims hidl_base_hwservice:hwservice_manager add;
+
+allow ims sysfs:file { read open } ;
