@@ -1,0 +1,6 @@
+# /data/vendor/wifi
+allow location wifi_vendor_data_file:dir search;
+
+# /data/vendor/wifi/wpa
+allow location wpa_data_file:dir rw_dir_perms;
+allow location wpa_data_file:sock_file create_file_perms;

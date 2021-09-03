@@ -1,0 +1,13 @@
+allow system_server consumer_ir_device:chr_file { rw_file_perms };
+
+allow system_server unlabeled:file unlink;
+
+#Allow system_server to add and find perf service
+#add_service(system_server, vendor_perf_service);
+allow system_server vendor_perf_service:service_manager find;
+
+allow system_server app_zygote:process getpgid;
+
+get_prop(system_server, exported_camera_prop)
+get_prop(system_server, userspace_reboot_config_prop)
+get_prop(system_server, userspace_reboot_exported_prop)

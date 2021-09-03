@@ -1,0 +1,2 @@
+allow audioserver sysfs:dir { r_dir_perms };
+allow audioserver hal_perf_default:binder call;
