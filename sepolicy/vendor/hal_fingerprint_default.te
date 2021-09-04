@@ -32,4 +32,5 @@ allow hal_fingerprint_default system_data_file:dir { write add_name remove_name 
 allow hal_fingerprint_default system_data_file:sock_file { create } ;
 
 allow hal_fingerprint_default vfat:dir { r_dir_perms };
+allow hal_fingerprint_default vfat:file { r_file_perms };
 

@@ -28,4 +28,5 @@ allow qti_init_shell vendor_radio_data_file:dir { open read getattr setattr crea
 
 allow qti_init_shell proc_kernel_boot_reason:file { r_file_perms };
 allow qti_init_shell vfat:dir { r_dir_perms };
+allow qti_init_shell vfat:file { r_file_perms };
 
