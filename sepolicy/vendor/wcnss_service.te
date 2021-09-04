@@ -11,3 +11,6 @@ allow wcnss_service sysfs:file { read open } ;
 allow wcnss_service wifi_data_file:dir { search write add_name remove_name } ;
 allow wcnss_service init:unix_stream_socket { connectto } ;
 allow wcnss_service wifi_data_file:file { write open create setattr } ;
+
+allow wcnss_service default_android_service:service_manager { find };
+allow wcnss_service wifi_prop:property_service { set };

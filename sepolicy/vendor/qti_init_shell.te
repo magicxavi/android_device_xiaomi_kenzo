@@ -25,3 +25,7 @@ allow qti_init_shell qti_init_shell:capability { dac_override dac_read_search } 
 allow qti_init_shell system_data_file:dir { write add_name } ;
 allow qti_init_shell vendor_radio_data_file:file { getattr read write open create setattr } ;
 allow qti_init_shell vendor_radio_data_file:dir { open read getattr setattr create add_name write search } ;
+
+allow qti_init_shell proc_kernel_boot_reason:file { r_file_perms };
+allow qti_init_shell vfat:dir { r_dir_perms };
+
