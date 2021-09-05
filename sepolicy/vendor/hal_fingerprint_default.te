@@ -34,5 +34,5 @@ allow hal_fingerprint_default system_data_file:sock_file { create } ;
 allow hal_fingerprint_default vfat:dir { r_dir_perms };
 allow hal_fingerprint_default vfat:file { r_file_perms };
 
-allow sysfs_fingerprint tmpfs:filesystem associate;
 allow hal_fingerprint_default tee_device:chr_file { read write open ioctl };
+allow hal_fingerprint tmpfs:filesystem associate;

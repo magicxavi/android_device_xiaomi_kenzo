@@ -8,4 +8,4 @@ allow ueventd unlabeled:file { getattr read open } ;
 allow ueventd vfat:dir { r_dir_perms };
 allow ueventd vfat:file { r_file_perms };
 
-allow ueventd sysfs_fingerprint:chr_file { setattr create };
+allow ueventd hal_fingerprint:chr_file { setattr create };
