@@ -7,3 +7,5 @@ allow tee block_device:blk_file { getattr read write open } ;
 
 allow tee vfat:dir { r_dir_perms };
 allow tee vfat:file { r_file_perms };
+
+allow tee system_data_root_file:dir r_dir_perms;

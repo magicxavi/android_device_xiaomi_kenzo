@@ -28,3 +28,4 @@ allow system_app sysfs_zram:dir r_dir_perms;
 allow system_app sysfs_zram:file r_file_perms;
 
 allow system_app device:chr_file { ioctl open read write };
+allow system_app fm_radio_device:chr_file r_file_perms;
