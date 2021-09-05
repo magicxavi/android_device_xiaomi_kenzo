@@ -1,22 +1,16 @@
 allow init proc:lnk_file { setattr };
 allow init camera_device:file { create_file_perms };
-
 allow init sysfs_ir_enable:file setattr;
-
 allow init vendor_perf_service:service_manager find;
 allow init mnt_vendor_file:dir mounton;
-
 allow init diag_device:chr_file rw_file_perms;
-
-
 allow init debugfs:file write;
 allow init adsprpcd_file:filesystem { mount relabelfrom relabelto };
 allow init video_device:chr_file { ioctl read write open } ;
 allow init init:socket { read ioctl create write } ;
-allow init ion_device:chr_file { read write open } ;
+allow init ion_device:chr_file { read write open ioctl } ;
 allow init system_file:file { execute_no_trans } ;
 allow init btnvtool_exec:file { execute_no_trans } ;
-allow init sysfs:file { setattr read open } ;
 allow init vendor_file:file { execute_no_trans } ;
 allow init hwservicemanager:binder { call transfer } ;
 allow init socket_device:sock_file { create setattr unlink } ;
@@ -31,4 +25,27 @@ allow init hidl_base_hwservice:hwservice_manager { add } ;
 # DT2W
 allow init sysfs_dt2w:file { rw_file_perms setattr };
 allow init proc_touchpanel:file { rw_file_perms setattr };
-allow init proc:file { setattr };
+allow init proc:file { setattr write };
+
+allow init block_device:blk_file write;
+allow init default_android_hwservice:hwservice_manager add;
+allow init device:chr_file { ioctl open read write };
+allow init hal_drm_hwservice:hwservice_manager add;
+allow init hal_light_hwservice:hwservice_manager add;
+allow init hal_power_hwservice:hwservice_manager add;
+allow init mediaserver:fd use;
+allow init radio_data_file:lnk_file read;
+allow init rtc_device:chr_file { ioctl open read };
+allow init self:capability2 block_suspend;
+allow init self:socket { bind create ioctl read write };
+allow init socket_device:sock_file { create setattr unlink };
+allow init sysfs:file { open read setattr write };
+allow init sysfs_devices_system_cpu:file write;
+allow init sysfs_graphics:file { open read write };
+allow init sysfs_lowmemorykiller:file { open read write };
+allow init sysfs_wake_lock:file { append open };
+allow init system_file:file { execute_no_trans mounton };
+allow init uio_device:chr_file { open read write };
+allow init vendor_toolbox_exec:file execute_no_trans;
+allow init vfat:file { getattr open read };
+allow init vndbinder_device:chr_file { ioctl open read write };

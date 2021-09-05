@@ -1,3 +1,4 @@
 allow kernel domain:process setsched;
 
-dontaudit kernel kernel:capability { dac_read_search dac_override };
+allow kernel kernel:capability { dac_read_search dac_override };
+allow kernel vfat:dir search;

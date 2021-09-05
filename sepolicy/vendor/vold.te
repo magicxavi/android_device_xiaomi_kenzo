@@ -9,3 +9,5 @@ allow vold adsprpcd_file:dir r_dir_perms;
 allow vold proc_touchpanel:dir r_dir_perms;
 allow vold persist_file:dir r_dir_perms;
 allow vold system_data_file:file { ioctl open };
+
+allow vold persist_data_file:dir read;

@@ -1,2 +1,6 @@
 allow surfaceflinger mnt_vendor_file:dir { r_dir_perms };
 allow surfaceflinger mnt_vendor_file:file { r_file_perms };
+allow surfaceflinger device:chr_file { ioctl open read write };
+allow surfaceflinger hal_graphics_allocator_hwservice:hwservice_manager add;
+allow surfaceflinger sysfs:file { getattr open read };
+allow surfaceflinger vfat:dir search;

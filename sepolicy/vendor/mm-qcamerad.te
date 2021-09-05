@@ -1,4 +1,4 @@
-allow mm-qcamerad sysfs:file { r_file_perms };
+allow mm-qcamerad sysfs:file { getattr open read write };
 
 allow mm-qcamerad vendor_camera_data_file:dir r_dir_perms;
 allow mm-qcamerad vendor_camera_data_file:file create_file_perms;

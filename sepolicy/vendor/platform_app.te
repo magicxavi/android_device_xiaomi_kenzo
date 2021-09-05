@@ -1,0 +1,1 @@
+allow platform_app exported_audio_prop:file open;

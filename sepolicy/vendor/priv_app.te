@@ -21,3 +21,5 @@ allow priv_app boottime_prop:file { open getattr };
 
 allow priv_app hal_memtrack_hwservice:hwservice_manager find;
 binder_call(priv_app, hal_memtrack_default)
+
+allow priv_app device:chr_file { ioctl read write };

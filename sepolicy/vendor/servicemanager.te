@@ -14,5 +14,8 @@ allow servicemanager mediaswcodec:dir search;
 allow servicemanager mediaswcodec:file { open read };
 allow servicemanager mediaswcodec:process getattr;
 
-allow servicemanager hal_power_default:dir { r_dir_perms };
+allow servicemanager hal_power_default:dir search;
+allow servicemanager hal_power_default:file { open read };
+allow servicemanager hal_power_default:process getattr;
+
 allow servicemanager hal_power_service:service_manager { add };

@@ -4,3 +4,4 @@ binder_call(mediacodec, servicemanager)
 binder_call(mediaswcodec, servicemanager)
 
 allow mediacodec firmware_file:dir search;
+allow mediacodec vfat:dir search;

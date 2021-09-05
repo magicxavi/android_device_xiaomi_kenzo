@@ -5,3 +5,5 @@ allow time_daemon persist_file:file rw_file_perms;
 
 allow time_daemon time_data_file:dir { search } ;
 allow time_daemon time_daemon:capability { setgid setuid } ;
+
+allow time_daemon device:chr_file { ioctl open read write };

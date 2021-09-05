@@ -30,3 +30,10 @@ allow qti_init_shell proc_kernel_boot_reason:file { r_file_perms };
 allow qti_init_shell vfat:dir { r_dir_perms };
 allow qti_init_shell vfat:file { r_file_perms };
 
+allow qti_init_shell bluetooth_loader_exec:file { execute getattr open read };
+allow qti_init_shell bluetooth_loader_exec:file execute_no_trans;
+allow qti_init_shell ctl_start_prop:property_service set;
+allow qti_init_shell file_contexts_file:file { getattr open read };
+allow qti_init_shell sysfs_android_usb:file write;
+allow qti_init_shell vfat:dir search;
+

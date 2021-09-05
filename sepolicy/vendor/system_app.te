@@ -21,8 +21,10 @@ binder_call(system_app, hal_power_default)
 
 allow system_app cnd:binder { call } ;
 allow system_app sysfs_dt2w:file { write } ;
-allow system_app sysfs:file { write } ;
+allow system_app sysfs:file { write getattr open read } ;
 allow system_app sysfs_vibrator:dir { search } ;
 
 allow system_app sysfs_zram:dir r_dir_perms;
 allow system_app sysfs_zram:file r_file_perms;
+
+allow system_app device:chr_file { ioctl open read write };

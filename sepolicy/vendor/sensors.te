@@ -6,4 +6,4 @@ allow sensors sysfs:file { read open } ;
 
 allow sensors persist_file:lnk_file { r_file_perms };
 allow sensors unlabeled:dir { r_dir_perms };
-allow sensors unlabeled:file { r_file_perms };
+allow sensors unlabeled:file { rw_file_perms };

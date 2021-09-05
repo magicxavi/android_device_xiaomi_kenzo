@@ -1,7 +1,15 @@
-allow zygote device:file w_file_perms;
+allow zygote device:file rw_file_perms;
 
 get_prop(zygote, exported_camera_prop)
 
 allow zygote theme_prop:file { r_file_perms } ;
 
 allow zygote bluetooth_prop:file { r_file_perms };
+
+allow zygote exported_camera_prop:file read;
+allow zygote proc_cmdline:file { getattr open read };
+allow zygote sysfs:file { getattr open read };
+allow zygote bluetooth_prop:file open;
+allow zygote exported_camera_prop:file open;
+allow zygote bluetooth_prop:file getattr;
+allow zygote exported_camera_prop:file getattr;

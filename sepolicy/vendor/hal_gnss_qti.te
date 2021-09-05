@@ -2,5 +2,12 @@ allow hal_gnss_qti hal_health_hwservice:hwservice_manager find;
 
 binder_call(hal_gnss_qti, hal_health_default)
 
-allow hal_gnss_qti sysfs:file { read } ;
-allow hal_gnss_qti sysfs:file { open } ;
+allow hal_gnss_qti device:chr_file { open read };
+allow hal_gnss_qti self:socket { create ioctl read write };
+allow hal_gnss_qti self:udp_socket create;
+allow hal_gnss_qti ssr_device:chr_file { open read };
+allow hal_gnss_qti sysfs:dir { open read };
+allow hal_gnss_qti sysfs:file { getattr open read };
+allow hal_gnss_qti system_data_file:file { getattr ioctl lock open read setattr write };
+allow hal_gnss_qti system_file:file lock;
+allow hal_gnss_qti vndbinder_device:chr_file { ioctl open read write };

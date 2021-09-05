@@ -2,7 +2,7 @@ type dsp_block_device, dev_type;
 allow fsck dsp_block_device:blk_file rw_file_perms;
 allow fsck cache_block_device:blk_file rw_file_perms;
 allow fsck persist_block_device:blk_file rw_file_perms;
-allow fsck block_device:blk_file { read write } ;
+allow fsck block_device:blk_file { ioctl open read write } ;
 allow fsck fsck:capability { dac_override dac_read_search } ;
 allow fsck block_device:blk_file { open ioctl } ;
 allow fsck tmpfs:blk_file { getattr } ;
