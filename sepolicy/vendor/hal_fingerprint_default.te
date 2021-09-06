@@ -36,3 +36,5 @@ allow hal_fingerprint_default vfat:file { r_file_perms };
 
 allow hal_fingerprint_default tee_device:chr_file { read write open ioctl };
 allow hal_fingerprint tmpfs:filesystem associate;
+
+allow hal_fingerprint_default fingerprint_service:service_manager { find };

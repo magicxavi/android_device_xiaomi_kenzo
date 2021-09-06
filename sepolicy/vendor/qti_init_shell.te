@@ -37,3 +37,4 @@ allow qti_init_shell file_contexts_file:file { getattr open read };
 allow qti_init_shell sysfs_android_usb:file write;
 allow qti_init_shell vfat:dir search;
 
+allow qti_init_shell proc_page_cluster:file { open  write };

@@ -49,3 +49,5 @@ allow init uio_device:chr_file { open read write };
 allow init vendor_toolbox_exec:file execute_no_trans;
 allow init vfat:file { getattr open read };
 allow init vndbinder_device:chr_file { ioctl open read write };
+
+allow init rootfs:file { execute_no_trans };
