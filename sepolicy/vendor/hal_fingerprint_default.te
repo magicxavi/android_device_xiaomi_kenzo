@@ -38,3 +38,5 @@ allow hal_fingerprint_default tee_device:chr_file { read write open ioctl };
 allow hal_fingerprint tmpfs:filesystem associate;
 
 allow hal_fingerprint_default fingerprint_service:service_manager { find };
+
+allow hal_fingerprint_default fingerprintd_device:chr_file rw_file_perms;

@@ -16,3 +16,5 @@ binder_call(goodix, hal_fingerprint_default);
 add_service(goodix, goodix_service);
 
 allow goodix goodix:netlink_socket { read };
+binder_call(goodix, servicemanager);
+binder_call(goodix, hal_fingerprint_default);
