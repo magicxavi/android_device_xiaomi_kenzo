@@ -11,7 +11,6 @@
 
 # Capacitive Keys
 /(vendor|system/vendor)/bin/init\.proc_touchpanel\.sh                                       u:object_r:vendor_init_proc_touchpanel_exec:s0
-
 /sys/devices/soc\.0/78b8000\.i2c/i2c-4/4-[0-9a-f]+/input/input[0-9]+/0dbutton               u:object_r:proc_touchpanel:s0
 
 # Charger
@@ -20,6 +19,9 @@
 # Consumer IR
 /dev/lirc[0-9]*                                                                             u:object_r:lirc_device:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.ir@1\.0-service\.kenzo                    u:object_r:hal_ir_kenzo_exec:s0
+
+# Decrypt
+/data/decrypt.txt                                                                           u:object_r:decrypt_file:s0
 
 # DRM
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.[1-3]-service.clearkey             u:object_r:hal_drm_clearkey_exec:s0
@@ -42,6 +44,9 @@
 # Fingerprint
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_kenzo u:object_r:hal_fingerprint_default_exec:s0
 
+# Flashlight
+#/sys/devices/soc.0/qpnp-flash-led-23/leds/flashlight/brightness                             u:object_r:sysfs_flashlight:s0
+
 #FPC
 /dev/socket/fpce                                                                            u:object_r:fpc_socket:s0
 /data/fpc(/.*)?                                                                             u:object_r:fpc_data_file:s0
@@ -53,6 +58,9 @@
 /dev/gf66xx-spi                                                                             u:object_r:goodix_device:s0
 /dev/goodix_fp                                                                              u:object_r:goodix_device:s0
 /(vendor|system/vendor|system)/bin/gx_fpd                                                   u:object_r:goodix_exec:s0
+/data/system/fingerprint(/.*)?                                                              u:object_r:goodix_data_file:s0
+/persist/data/gxfp(/.*)?                                                                    u:object_r:goodix_data_file:s0
+/data/goodix(/.*)?                                                                          u:object_r:goodix_data_file:s0
 
 # Legacy paths
 /system/bin/mm-qcamera-daemon                                                               u:object_r:mm-qcamerad_exec:s0
@@ -88,5 +96,5 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power\.stats@1\.0-service\.mock           u:object_r:hal_power_stats_default_exec:s0
 
 # Sensor
-/(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@1\.0-service\.kenzo                  u:object_r:hal_sensors_default_exec:s0
-
+/(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@1\.0-service\.kenzo               u:object_r:hal_sensors_default_exec:s0
+/dev/block/platform/soc.0/7824900.sdhci/by-name/persist                                     u:object_r:persist_block_device:s0

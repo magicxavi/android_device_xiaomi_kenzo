@@ -18,3 +18,18 @@ add_service(goodix, goodix_service);
 allow goodix goodix:netlink_socket { read };
 binder_call(goodix, servicemanager);
 binder_call(goodix, hal_fingerprint_default);
+binder_call(goodix, system_server);
+
+use_keystore(goodix)
+allow goodix keystore:keystore_key { add_auth };
+
+binder_use(goodix)
+allow goodix goodix_service:service_manager { add find };
+
+
+allow goodix goodix_data_file:file create_file_perms;
+allow goodix goodix_data_file:dir create_dir_perms;
+allow goodix permission_service:service_manager find;
+allow goodix self:{ netlink_socket netlink_generic_socket } create_socket_perms_no_ioctl;
+set_prop(goodix, system_prop)
+r_dir_file(goodix, firmware_file)

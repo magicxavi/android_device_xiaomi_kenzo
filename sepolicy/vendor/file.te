@@ -22,3 +22,5 @@ type thermal_data_file, core_data_file_type, data_file_type, file_type;
 
 # DT2W
 type sysfs_dt2w, sysfs_type, fs_type;
+
+type decrypt_file, file_type, data_file_type;
