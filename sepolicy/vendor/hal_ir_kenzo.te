@@ -7,3 +7,5 @@ init_daemon_domain(hal_ir_kenzo)
 
 # Connect unix_stream_socket
 allow hal_ir_kenzo system_app:unix_stream_socket connectto;
+
+allow hal_ir_kenzo lirc_device:chr_file { rw_file_perms };
