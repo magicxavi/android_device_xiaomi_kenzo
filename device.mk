@@ -330,7 +330,8 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti
+    android.hardware.power-service-qti \
+    android.hardware.power.stats@1.0-service.mock
 
 # Qualcomm dependencies
 PRODUCT_PACKAGES += \
