@@ -51,13 +51,13 @@ on property:persist.spectrum.profile=0
     write /sys/block/mmcblk1/queue/read_ahead_kb 1024
   	## Thermal Throttling
 	write /sys/module/msm_thermal/parameters/enabled "Y"
-	write /sys/module/msm_thermal/parameters/temp_threshold 65
+	write /sys/module/msm_thermal/parameters/temp_threshold 60
     ## devfreq
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
-    write /sys/class/devfreq/cpubw/governor "bw_hwmon"
+    write /sys/class/devfreq/cpubw/governor "interactive"
     ## Power Efficient Workqueue
     chmod 0664 /sys/module/workqueue/parameters/power_efficient
-    write /sys/module/workqueue/parameters/power_efficient "N"
+    write /sys/module/workqueue/parameters/power_efficient "Y"
     
 # Performance
 on property:persist.spectrum.profile=1
@@ -121,6 +121,7 @@ on property:persist.spectrum.profile=2
     ## CPU Governors
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "interactive"
     restorecon -R /sys/devices/system/cpu # must restore after interactive
+    ## CPU Governors small
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
     restorecon -R /sys/devices/system/cpu # must restore after interactive
     ## BFQ
@@ -185,7 +186,7 @@ on property:persist.spectrum.profile=3
     write /sys/block/mmcblk1/queue/read_ahead_kb 512
   	## Thermal Throttling
 	write /sys/module/msm_thermal/parameters/enabled "Y"
-	write /sys/module/msm_thermal/parameters/temp_threshold 70
+	write /sys/module/msm_thermal/parameters/temp_threshold 75
     ## Adreno Boost
     write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 3
     ## devfreq
