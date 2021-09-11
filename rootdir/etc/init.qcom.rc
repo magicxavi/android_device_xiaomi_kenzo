@@ -232,6 +232,10 @@ on boot
     chmod 0666 /sys/class/leds/led:torch_0/brightness
     chmod 0666 /sys/class/leds/led:torch_1/brightness
     chmod 0666 /sys/class/leds/led:switch/brightness
+    
+    # HW Buttons Brightness
+    chown root system /sys/class/leds/button-backlight/max_brightness
+    chmod 0660 /sys/class/leds/button-backlight/max_brightness
 
     # Flashlight
     chown root system /sys/devices/soc.0/qpnp-flash-led-23/leds/led:torch_0/max_brightness
