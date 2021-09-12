@@ -7,3 +7,6 @@ persist.vendor.service.bdroid.bdaddr       u:object_r:bluetooth_prop:s0
 ctl.vendor.dataadpl         u:object_r:vendor_dataadpl_prop:s0
 
 service.camera.hdmi_preview    u:object_r:camera_prop:s0
+
+# Dirac
+persist.audio.dirac.                u:object_r:dirac_prop:s0

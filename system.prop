@@ -31,6 +31,14 @@ persist.vendor.audio.fluence.voicerec=false
 vendor.voice.voip.conc.disabled=true
 audio.offload.multiaac.enable=true
 
+# Dirac
+persist.dirac.acs.controller=qem
+persist.dirac.acs.storeSettings=1
+persist.dirac.acs.ignore_error=1
+hpx_send_params=1
+ro.audio.soundfx.dirac=true
+persist.audio.dirac.speaker=true
+
 # AUX Camera app
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 

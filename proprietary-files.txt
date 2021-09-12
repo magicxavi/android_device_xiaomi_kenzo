@@ -9,10 +9,11 @@ etc/acdbdata/MTP/msm8976-tasha-snd-card/MTP_WCD9335_Hdmi_cal.acdb|030476241cb94c
 etc/acdbdata/MTP/msm8976-tasha-snd-card/MTP_WCD9335_Headset_cal.acdb|b39d15c77e551ccc6d97b7baf77cbe639791b834
 etc/acdbdata/MTP/msm8976-tasha-snd-card/MTP_WCD9335_Speaker_cal.acdb|f867516c7cf1429f3f2b0ac016f45d4a9b8769dd
 
-# Audio dirac
-lib/libDiracAPI_SHARED.so|42b49679d38eca93fead05ea06ddbdc8108fd4b1
-lib/soundfx/libdirac.so|f63826a905b520fa524e4c1b147be7cf65240953
-vendor/etc/diracmobile.config|d781cd6798a7481a8f7128d144abfb2b8794212d
+# Audio Dirac
+vendor/etc/diracmobile.config|3ecf4177dd0463d5ee02b7ab90498bef8ae12c90
+vendor/etc/diracvdd.bin|b54270d4f44acc2bb2be8e1cdb3e54fb2c6be07b
+vendor/lib/libDiracAPI_SHARED.so|42b49679d38eca93fead05ea06ddbdc8108fd4b1
+vendor/lib/soundfx/libdirac.so|f63826a905b520fa524e4c1b147be7cf65240953
 
 # Audiosphere
 lib/soundfx/libasphere.so|72c4e50e1e0058721e213387975f3dde5372d610

@@ -6,3 +6,9 @@ allow hal_audio_default device:chr_file { ioctl open read write };
 allow hal_audio_default sysfs_batteryinfo:dir search;
 allow hal_audio_default sysfs_batteryinfo:file r_file_perms;
 allow hal_audio_default sysfs:file { getattr open read };
+
+# Dirac
+get_prop(hal_audio_default, dirac_prop)
+set_prop(hal_audio_default, dirac_prop)
+allow hal_audio_default vendor_data_file:dir { create write add_name };
+allow hal_audio_default vendor_data_file:file { create rw_file_perms };
