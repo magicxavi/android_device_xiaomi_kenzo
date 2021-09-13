@@ -196,6 +196,11 @@ PRODUCT_PACKAGES += \
     fingerprint.msm8952 \
     android.hardware.biometrics.fingerprint@2.1-service.xiaomi_kenzo
 
+# Filesystem tools
+PRODUCT_PACKAGES += \
+    e2fsck_static \
+    resize2fs_static
+
 # FM
 PRODUCT_PACKAGES += \
     FMRadio \
