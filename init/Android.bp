@@ -20,7 +20,7 @@ cc_library_static {
         "init_msm.cpp",
     ],
     include_dirs: [
-        "system/core/base/include",
+        "system/libbase/include",
         "system/core/init",
     ],
     shared_libs: [
