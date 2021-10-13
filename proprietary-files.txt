@@ -517,6 +517,8 @@ etc/firmware/venus.mbn|36e6190a041412152bff5e0055a342e5cdc94c6c
 etc/firmware/venus.mdt|00ef8b773c2674e7c03c4e46a4abb869f4dcb38a
 
 # Wi-Fi
-bin/wcnss_service|96b08d5bd996c8218a4d1252c630fbc636382a40
 lib/libsoeminfo.so|db852c03f5a7cda892a0a1052f5602d2ae727ec3
 lib64/libsoeminfo.so|42a6b8ca4f2ef9f28024a4fe9c41f01022d3569d
+
+# Wi-Fi - wcnss
+-bin/wcnss_service|96b08d5bd996c8218a4d1252c630fbc636382a40
