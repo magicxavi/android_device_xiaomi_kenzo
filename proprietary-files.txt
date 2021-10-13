@@ -20,7 +20,6 @@ lib/soundfx/libasphere.so|72c4e50e1e0058721e213387975f3dde5372d610
 lib64/soundfx/libasphere.so|f08ab7c0697355ece94447dc7d5238c2ba772df4
 
 # Camera
-bin/mm-qcamera-daemon|adef0ff03b2c9c428cd841398a9ec7ccb48caa4e
 lib/libRecoFace.so|82a6a4a3492133b6398e91d7af8727957502b701
 vendor/lib/lib-imscamera.so|8b9ea3d820d0c9c2f8ee63f5e25a374c55190db8
 vendor/lib/libFaceGrade.so|e34a56194348ba4b602431921170f22f685efa64
@@ -114,6 +113,9 @@ vendor/lib/libqomx_jpegenc.so|f1eaecb1e7853a5368e35dbfbe44a57ab28fa8c6
 vendor/lib/libqomx_jpegenc_pipe.so|02ec8aa8ff65fd00a46363233501ce0578414885
 -vendor/lib/libts_detected_face_hal.so|247470e7610f93b0a21d943f5e47ab61a032b1e0
 -vendor/lib/libts_face_beautify_hal.so|4b8700003fd32f5a6a650821b86ed33e73992d10
+
+# Camera - mm-qcamera-daemon
+-bin/mm-qcamera-daemon|adef0ff03b2c9c428cd841398a9ec7ccb48caa4e
 
 # Camera blob - pinned from smartron
 vendor/lib/libmmcamera_trueportrait_lib.so|bb806a775921491031ad1d569dd15dc23c00af83
