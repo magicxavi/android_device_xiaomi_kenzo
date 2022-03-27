@@ -19,14 +19,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from kenzo device
 $(call inherit-product, device/xiaomi/kenzo/device.mk)
-$(call inherit-product, vendor/havoc/config/common_full_phone.mk)
+$(call inherit-product, vendor/dot/config/common.mk)
 
 
 # Set those variables here to overwrite the inherited values.
 BOARD_VENDOR := Xiaomi
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := kenzo
-PRODUCT_NAME := havoc_kenzo
+PRODUCT_NAME := dot_kenzo
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := Redmi Note 3
 TARGET_VENDOR := Xiaomi
@@ -43,7 +43,7 @@ TARGET_BOOT_ANIMATION_RES := 1080
 USE_CCACHE=0
 
 # Official-ify
-HAVOC_BUILD_TYPE := Official
+TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_GAPPS_ARCH := arm64
 WITH_GAPPS=true
 TARGET_INCLUDE_LIVE_WALLPAPERS := false

@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/havoc_kenzo.mk
+    $(LOCAL_DIR)/dot_kenzo.mk
 
 COMMON_LUNCH_CHOICES := \
-    havoc_kenzo-user \
-    havoc_kenzo-userdebug \
-    havoc_kenzo-eng
+    dot_kenzo-user \
+    dot_kenzo-userdebug \
+    dot_kenzo-eng
