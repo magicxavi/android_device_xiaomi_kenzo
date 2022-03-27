@@ -559,6 +559,9 @@ vendor/lib64/libthermalioctl.so|24b22582f3f77769c5fbca06fcc1d3b6533cdf40
 -vendor/lib/libthermalclient.so|6077e27e15d9e3e43fa57d6d5405c49284f48949
 -vendor/lib64/libthermalclient.so|12b26d4242b1a8913ddcb511f42a1debb83689af
 
+# Thermal config
+vendor/etc/thermal-engine.conf|fcfb1f8ee3b8306034986512ca21167e569ca2c2
+
 # Time services - from daisy - xiaomi/daisy/daisy_sprout:10/QKQ1.191002.002/V11.0.18.0.QDLMIXM
 vendor/bin/time_daemon|75b8a6a14cfb4424499ccb2bf1cad011df295d0e
 vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
