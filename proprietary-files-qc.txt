@@ -558,12 +558,11 @@ vendor/lib64/libsensor_reg.so|54baa94535e7dd96804019810e90cfbec5519bf5
 vendor/lib64/sensor_calibrate.so|4bb147013fc7bb41b1009b591a4d91abbc54fb30
 vendor/lib64/sensors.ssc.so|9affbc5130223a63c7c8ee33a1b7408d739e1466
 
-# Thermal - from daisy - xiaomi/daisy/daisy_sprout:10/QKQ1.191002.002/V11.0.18.0.QDLMIXM
-vendor/bin/thermal-engine|4ab3c410fbcf9f8cae711ea4ba16cd2797712de6
-vendor/lib64/libthermalfeature.so|829b2fc0aa8c863d4b4b331e0a2c00663e01efe6
-vendor/lib64/libthermalioctl.so|24b22582f3f77769c5fbca06fcc1d3b6533cdf40
--vendor/lib/libthermalclient.so|6077e27e15d9e3e43fa57d6d5405c49284f48949
--vendor/lib64/libthermalclient.so|12b26d4242b1a8913ddcb511f42a1debb83689af
+# Thermal - from kenzo - stock 10.2.1.0
+vendor/bin/thermal-engine|dc2a090d66e60a227c0bbd76bbc1e11779ea5239
+vendor/lib64/libthermalioctl.so|47e3843ab73b399347d0c017d75b9150d83082ba
+-vendor/lib/libthermalclient.so|6096637d37150d89caf3c730c9964ac07797fa55
+-vendor/lib64/libthermalclient.so|9beae9671d80ee9b1d47689ed32b5780a863cb77
 
 # Thermal config
 vendor/etc/thermal-engine.conf|fcfb1f8ee3b8306034986512ca21167e569ca2c2
